@@ -1,14 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import nineball from "../../public/images/Music/nineball.png";
-import BrockHampton from "../../public/images/Music/BrockHampton.png";
-import Delilah from "../../public/images/Music/Delilah.png";
-import Direstraits from "../../public/images/Music/Direstraits.png";
-import Misses from "../../public/images/Music/Misses.png";
-import RadioHead from "../../public/images/Music/RadioHead.png";
-import RichGirl from "../../public/images/Music/RichGirl.png";
-import Wonderwall from "../../public/images/Music/Wonderwall.png";
 
 const imagesList = [
   // Add more image URLs as needed
