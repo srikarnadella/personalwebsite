@@ -1,14 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import nineball from "../../public/images/Music/nineball.png";
-import BrockHampton from "../../public/images/Music/BrockHampton.png";
-import Delilah from "../../public/images/Music/Delilah.png";
-import Direstraits from "../../public/images/Music/Direstraits.png";
-import Misses from "../../public/images/Music/Misses.png";
-import RadioHead from "../../public/images/Music/RadioHead.png";
-import RichGirl from "../../public/images/Music/RichGirl.png";
-import Wonderwall from "../../public/images/Music/Wonderwall.png";
 
 const imagesList = [
   // Add more image URLs as needed
@@ -90,12 +82,13 @@ const ScrollingImageTiles = () => {
   };
 
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      const { scrollWidth, clientWidth } = scrollContainerRef.current;
-      scrollContainerRef.current.scrollLeft = scrollWidth / 4; // Start in the middle of the repeated list
-      scrollContainerRef.current.addEventListener("scroll", handleScroll);
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      const { scrollWidth, clientWidth } = scrollContainer;
+      scrollContainer.scrollLeft = scrollWidth / 4; // Start in the middle of the repeated list
+      scrollContainer.addEventListener("scroll", handleScroll);
       return () => {
-        scrollContainerRef.current.removeEventListener("scroll", handleScroll);
+        scrollContainer.removeEventListener("scroll", handleScroll);
       };
     }
   }, []);
@@ -103,7 +96,7 @@ const ScrollingImageTiles = () => {
   return (
     <div className="relative py-8 px-4 font-bold text-4xl md:mb-12 xl:gap-16 sm:py-16 xl:px-16">
       <h2 className="text-4xl font-bold mb-4 text-center text-white">
-        Music I'm listening to
+        Music I&#39;m listening to
       </h2>
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
         <button

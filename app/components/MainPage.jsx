@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
+
 const MainPage = () => {
   return (
     <section id="">
@@ -9,7 +10,7 @@ const MainPage = () => {
         <div className="col-span-7 place-self-center text-center sm:text-left">
           <h1 className="text-white mb-4 text-5xl sm:text-6xl lg:text-7xl font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4169e1] to-[#E57200]">
-              Hello, I'm{" "}
+              Hello, I&#39;m{" "}
             </span>
             <br></br>
             <TypeAnimation
@@ -85,7 +86,7 @@ const MainPage = () => {
           <div className="rounded-full overflow-hidden bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative p-1">
             <Image
               src="/images/pfp.png"
-              alt="black sabre"
+              alt="Profile picture"
               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
               width={300}
               height={300}
