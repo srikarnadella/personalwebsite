@@ -7,9 +7,11 @@ import AchievementSection from "./components/AchievementSection";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import ScrollingImageTiles from "./components/ScrollingImageTiles";
+import { Analytics } from "@vercel/analytics/react";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-black">
+      <Analytics />
       <NavigationBar />
       <div class="container mt-24 mx-auto px-12 py-4">
         <MainPage />
