@@ -54,7 +54,7 @@ const MainPage = () => {
           </p>
           <div>
             <a
-              href="https://drive.google.com/file/d/1fhuUuBZyaHhjWyty75Vn0hfJRFKAp34S/view"
+              href="https://drive.google.com/file/d/1dnFLN4RVyf2fQ8AbDazQCtkUEqZ-uhOx/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -63,7 +63,7 @@ const MainPage = () => {
               </button>
             </a>
             <a
-              href="https://drive.google.com/file/d/1fhuUuBZyaHhjWyty75Vn0hfJRFKAp34S/view"
+              href="https://docs.google.com/document/d/1Y4Q39NdfvmJHndFQL1hIeA1w4-uHetEWGG3wR3VOtKo/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -78,6 +78,15 @@ const MainPage = () => {
             >
               <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#232D4B] via-[#4169e1] to-[#D9451F] hover:bg-[#D9451F] text-white">
                 Github
+              </button>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/srikar-nadella/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#232D4B] via-[#4169e1] to-[#D9451F] hover:bg-[#D9451F] text-white">
+                Linkedin
               </button>
             </a>
           </div>

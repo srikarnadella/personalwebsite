@@ -42,7 +42,13 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>Working on it</li>
+        <li>J.P. Morgan Chase Investment Banking Job Simulation</li>
+        <li>
+          J.P. Morgan Chase Software Engineering Virtual Experience on Forage
+        </li>
+        <li>Wells Fargo Software Engineering Job Simulation on Forage</li>
+        <li>PwC US Cyber Security ConsultingJob Simulation on Forage</li>
+        <li>Mastercard Cybersecurity virtual experience program on Forage</li>
       </ul>
     ),
   },
