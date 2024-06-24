@@ -13,8 +13,6 @@ const Projects = [
     image: "/images/projects/MachineLearning.png",
     tag: ["All", "Machine Learning", "Write-Ups", "Python", "Data-Analysis"],
     gitUrl: "https://github.com/srikarnadella/MachineLearningNotesandInsights",
-
-    previewUrl: "/",
   },
   {
     id: 2,
@@ -25,8 +23,6 @@ const Projects = [
     tag: ["All", "Machine Learning", "Python"],
     gitUrl:
       "https://github.com/srikarnadella/RandomStuff/tree/main/FacialRecognition",
-
-    previewUrl: "/",
   },
   {
     id: 3,
@@ -36,7 +32,7 @@ const Projects = [
     tag: ["All", "In-Progress", "Machine Learning", "Data-Analysis"],
     gitUrl: "https://github.com/srikarnadella/KaggleProjects",
 
-    previewUrl: "/",
+    previewUrl: "https://www.kaggle.com/srikarnadella",
   },
   {
     id: 4,
@@ -53,8 +49,6 @@ const Projects = [
     ],
     gitUrl:
       "https://github.com/srikarnadella/Financial-Modeling/tree/main/Analysis",
-
-    previewUrl: "/",
   },
   {
     id: 5,
@@ -72,8 +66,6 @@ const Projects = [
     ],
     gitUrl:
       "https://github.com/srikarnadella/Financial-Modeling/tree/main/Simulations",
-
-    previewUrl: "/",
   },
   {
     id: 6,
@@ -93,8 +85,6 @@ const Projects = [
       "In-Progress",
     ],
     gitUrl: "https://github.com/srikarnadella/Forage-Simulations",
-
-    previewUrl: "/",
   },
   {
     id: 7,
@@ -104,7 +94,8 @@ const Projects = [
     tag: ["All", "Websites"],
     gitUrl: "https://github.com/srikarnadella/pomodoro-website",
 
-    previewUrl: "/",
+    previewUrl:
+      "https://pomodoro-website-git-main-srikarnadellas-projects.vercel.app/",
   },
   {
     id: 8,
@@ -114,8 +105,6 @@ const Projects = [
     image: "/images/projects/emailspam.png",
     tag: ["All", "Python", "Machine Learning"],
     gitUrl: "https://github.com/srikarnadella/EmailSpamDetector",
-
-    previewUrl: "/",
   },
   {
     id: 9,
@@ -125,8 +114,6 @@ const Projects = [
     image: "/images/projects/heartdisease.png",
     tag: ["All", "Python", "Machine Learning", "Data-Analysis"],
     gitUrl: "https://github.com/srikarnadella/HeartDiseasePredictorModel",
-
-    previewUrl: "/",
   },
   {
     id: 10,
@@ -135,8 +122,6 @@ const Projects = [
     image: "/images/projects/todolist.png",
     tag: ["All", "Apps"],
     gitUrl: "https://github.com/srikarnadella/To-Do-List-App",
-
-    previewUrl: "/",
   },
   {
     id: 11,
@@ -145,8 +130,6 @@ const Projects = [
     image: "/images/projects/yelp.png",
     tag: ["All", "Apps"],
     gitUrl: "https://github.com/srikarnadella/yelp-app",
-
-    previewUrl: "/",
   },
   {
     id: 12,
@@ -156,8 +139,6 @@ const Projects = [
     image: "/images/projects/ibwebscraper.png",
     tag: ["All", "Python", "Data-Analysis", "In-Progress"],
     gitUrl: "https://github.com/srikarnadella/IBWebScraper",
-
-    previewUrl: "/",
   },
   {
     id: 13,
@@ -174,8 +155,6 @@ const Projects = [
       "Graphing",
     ],
     gitUrl: "https://github.com/srikarnadella/TradingPairsHUD",
-
-    previewUrl: "/",
   },
   {
     id: 14,
@@ -185,8 +164,6 @@ const Projects = [
     image: "/images/projects/caddy.png",
     tag: ["All", "In-Progress", "Apps", "Machine Learning"],
     gitUrl: "https://github.com/srikarnadella/CaddyAI",
-
-    previewUrl: "/",
   },
   {
     id: 15,
@@ -195,17 +172,49 @@ const Projects = [
     image: "/images/projects/creditscore.png",
     tag: ["All", "In-Progress", "Python", "Machine Learning", "Data-Analysis"],
     gitUrl: "https://github.com/srikarnadella/CreditScoreAnalysis",
-    previewUrl: "/",
+  },
+  {
+    id: 16,
+    title: "Simple Web Games",
+    description: "Website with a few traditional games",
+    image: "/images/projects/tictactoe.png",
+    tag: ["All", "In-Progress", "Websites"],
+    gitUrl: "https://github.com/srikarnadella/WebGames",
+    previewUrl: "https://web-games-black.vercel.app/",
   },
 ];
 
 const ProjectsTab = () => {
   const [tag, setTag] = useState("All");
+  const [sortOrder, setSortOrder] = useState("asc"); // State for sorting order
+
   const handleTagChange = (newTag) => {
     setTag(newTag);
   };
 
-  const filteredProjects = Projects.filter((project) =>
+  // Function to sort projects by id in ascending order
+  const sortProjectsAsc = () => {
+    const sortedProjects = [...Projects].sort((a, b) => a.id - b.id);
+    return sortedProjects;
+  };
+
+  // Function to sort projects by id in descending order
+  const sortProjectsDesc = () => {
+    const sortedProjects = [...Projects].sort((a, b) => b.id - a.id);
+    return sortedProjects;
+  };
+
+  // Function to toggle sorting order
+  const toggleSortOrder = () => {
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+  };
+
+  // Determine which sorting function to use based on sortOrder state
+  const sortedProjects =
+    sortOrder === "asc" ? sortProjectsAsc() : sortProjectsDesc();
+
+  // Filter projects based on selected tag
+  const filteredProjects = sortedProjects.filter((project) =>
     project.tag.includes(tag)
   );
   return (
@@ -216,6 +225,12 @@ const ProjectsTab = () => {
         </h2>
         <h4 className="items-center text-center mt-0">
           Sorted from Oldest to Newest
+          <button
+            className="ml-2 text-sm text-gray-300 hover:text-white focus:outline-none"
+            onClick={toggleSortOrder}
+          >
+            {sortOrder === "asc" ? "▼" : "▲"}
+          </button>
         </h4>
         <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
           <ProjectTag

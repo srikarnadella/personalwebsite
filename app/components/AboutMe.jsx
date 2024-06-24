@@ -43,12 +43,12 @@ const TAB_DATA = [
     content: (
       <ul className="list-disc pl-2">
         <li>J.P. Morgan Chase Investment Banking Job Simulation</li>
-        <li>
-          J.P. Morgan Chase Software Engineering Virtual Experience on Forage
-        </li>
-        <li>Wells Fargo Software Engineering Job Simulation on Forage</li>
-        <li>PwC US Cyber Security ConsultingJob Simulation on Forage</li>
-        <li>Mastercard Cybersecurity virtual experience program on Forage</li>
+        <li>J.P. Morgan Chase Software Engineering Virtual Experience</li>
+        <li>Wells Fargo Software Engineering Job Simulation</li>
+        <li>PwC US Cyber Security ConsultingJob Simulation</li>
+        <li>Mastercard Cybersecurity virtual experience program</li>
+        <li>BCG GenAI Job Simulation</li>
+        <li>BCG Strategy Consulting Job Simulation</li>
       </ul>
     ),
   },

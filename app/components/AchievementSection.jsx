@@ -22,8 +22,8 @@ const achievementsList = [
   },
 
   {
-    metric: "Years experience",
-    value: "4",
+    metric: "Miles Ran this Month",
+    value: "36.4",
   },
 ];
 

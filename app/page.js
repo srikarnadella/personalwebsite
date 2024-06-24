@@ -8,6 +8,7 @@ import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import ScrollingImageTiles from "./components/ScrollingImageTiles";
 import { Analytics } from "@vercel/analytics/react";
+import Blog from "./components/Blog";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-black">
@@ -20,6 +21,7 @@ export default function Home() {
         <AboutMe />
         <ScrollingImageTiles />
         <ProjectsTab />
+        <Blog />
         <EmailSection />
       </div>
       <Footer></Footer>
