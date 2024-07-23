@@ -57,6 +57,7 @@ const TAB_DATA = [
     id: "experience",
     content: (
       <ul className="list-disc pl-2">
+        <li>Full Stack Developer Intern @ Pharaoh Analytics</li>
         <li>Software Intern @ NTConcepts</li>
         <li>Cloud Intern @ Navitas Business Consulting</li>
       </ul>

@@ -21,8 +21,6 @@ const imagesList = [
   "/images/Music/Sixpence.png",
   "/images/Music/AbbeyRoad.png",
   "/images/Music/Cartman.png",
-  "/images/Music/TylerCreator.png",
-  "/images/Music/Gambino.png",
   "/images/Music/EricChurch.png",
   "/images/Music/TomPetty.png",
 ];

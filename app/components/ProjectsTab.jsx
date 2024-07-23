@@ -42,7 +42,7 @@ const Projects = [
     tag: [
       "All",
       "Python",
-      "Graphing",
+      "Data Visualization",
       "Stocks",
       "Data-Analysis",
       "In-Progress",
@@ -60,7 +60,7 @@ const Projects = [
       "All",
       "Machine Learning",
       "Python",
-      "Graphing",
+      "Data Visualization",
       "Stocks",
       "In-Progress",
     ],
@@ -77,7 +77,7 @@ const Projects = [
       "All",
       "Machine Learning",
       "Python",
-      "Graphing",
+      "Data Visualization",
       "Stocks",
       "Consultilng",
       "Write-Ups",
@@ -152,7 +152,7 @@ const Projects = [
       "Stocks",
       "In-Progress",
       "Apps",
-      "Graphing",
+      "Data Visualization",
     ],
     gitUrl: "https://github.com/srikarnadella/TradingPairsHUD",
   },
@@ -182,11 +182,57 @@ const Projects = [
     gitUrl: "https://github.com/srikarnadella/WebGames",
     previewUrl: "https://web-games-black.vercel.app/",
   },
+  {
+    id: 17,
+    title: "NBA MVP Predictor and Analysis",
+    description:
+      "Machine Learning Program that analyzes data starting from the 1990s to determine who should be the MVP",
+    image: "/images/projects/mvp.png",
+    tag: ["All", "Machine-Learning", "Data-Analysis"],
+    gitUrl: "https://github.com/srikarnadella/NBAMVPPredictor",
+  },
+  {
+    id: 18,
+    title: "Housing Market Analysis",
+    description:
+      "Machine Learning Program that uses Zillow and Fed data to predict the movement of the housing market",
+    image: "/images/projects/housing.png",
+    tag: ["All", "Machine-Learning", "Data-Analysis", "Data Visualization"],
+    gitUrl: "https://github.com/srikarnadella/HouseMarketAnalysis",
+  },
+  {
+    id: 19,
+    title: "Machine Learning Model for BlackJack",
+    description:
+      "Uses various models such as a DQN and various statistcal models to help users win more rounds of blackjack",
+    image: "/images/projects/blackjack.png",
+    tag: ["All", "Machine-Learning"],
+    gitUrl: "https://github.com/srikarnadella/BlackJackML",
+  },
+  {
+    id: 20,
+    title: "Sorting Algorithms Website/Visualizer",
+    description:
+      "Website that is a learning tool for various sorting algos. Displays visualizations as well as general information",
+    image: "/images/projects/sorting.png",
+    tag: ["All", "Websites"],
+    gitUrl: "https://github.com/srikarnadella/Sort-Visualizer",
+    previewUrl: "https://sort-visualizer-fawn.vercel.app/",
+  },
+  {
+    id: 21,
+    title: "Sentiment Analysis",
+    description:
+      "Machine Learning Model that uses VADER and RoBERTa to analyze text sentiment. Applied on live news headlines for inputed companies to guage impact on stock",
+    image: "/images/projects/sentiment.png",
+    tag: ["All", "Machine-Learning", "Data-Analysis", "Stocks"],
+    gitUrl: "https://github.com/srikarnadella/SentimentAnalysis",
+  },
 ];
 
 const ProjectsTab = () => {
   const [tag, setTag] = useState("All");
-  const [sortOrder, setSortOrder] = useState("asc"); // State for sorting order
+  const [sortOrder, setSortOrder] = useState("desc"); // State for sorting order
 
   const handleTagChange = (newTag) => {
     setTag(newTag);
@@ -217,6 +263,7 @@ const ProjectsTab = () => {
   const filteredProjects = sortedProjects.filter((project) =>
     project.tag.includes(tag)
   );
+
   return (
     <>
       <section id="projects">
@@ -224,7 +271,8 @@ const ProjectsTab = () => {
           My Projects
         </h2>
         <h4 className="items-center text-center mt-0">
-          Sorted from Oldest to Newest
+          Sorted from{" "}
+          {sortOrder === "asc" ? "Oldest to Newest" : "Newest to Oldest"}
           <button
             className="ml-2 text-sm text-gray-300 hover:text-white focus:outline-none"
             onClick={toggleSortOrder}
@@ -250,8 +298,8 @@ const ProjectsTab = () => {
           />
           <ProjectTag
             onClick={handleTagChange}
-            name="Graphing"
-            isSelected={tag === "Graphing"}
+            name="Data Visualization"
+            isSelected={tag === "Data Visualization"}
           />
           <ProjectTag
             onClick={handleTagChange}

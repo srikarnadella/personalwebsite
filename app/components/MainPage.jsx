@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
+import ResumeDropdown from "./ResumeDropdown";
 
 const MainPage = () => {
   return (
@@ -38,9 +39,9 @@ const MainPage = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm-text-lg mb-6 lg:text-xl">
-            I am a second year at the University of Virginia in the School of
+            I am a student at the University of Virginia in the School of
             Engineering and Applied Sciences where I major in Computer Science.
-            I am also currently pursuing a minor in Data Science and a General
+            I am also currently pursuing minors in Data Science and a General
             Business from the McIntire School of Commerce. My career aspirations
             are to work in consulting or as a software engineer due to the wide
             variety of problems that I will be challenged with. Currently I am
@@ -53,15 +54,7 @@ const MainPage = () => {
             recruiting for a role or want to work on something together!
           </p>
           <div>
-            <a
-              href="https://drive.google.com/file/d/1dnFLN4RVyf2fQ8AbDazQCtkUEqZ-uhOx/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#232D4B] via-[#4169e1] to-[#D9451F] hover:bg-slate-200 text-white">
-                Open Resume
-              </button>
-            </a>
+            <ResumeDropdown />
             <a
               href="https://docs.google.com/document/d/1Y4Q39NdfvmJHndFQL1hIeA1w4-uHetEWGG3wR3VOtKo/edit?usp=sharing"
               target="_blank"
