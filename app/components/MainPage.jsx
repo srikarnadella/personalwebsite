@@ -18,7 +18,7 @@ const MainPage = () => {
               sequence={[
                 "Srikar Nadella",
                 1000,
-                "a Second Year at the University of Virginia",
+                "a student at the University of Virginia",
                 1000,
                 "a Computer Science Major",
                 1000,
