@@ -39,7 +39,7 @@ const ResumeDropdown = () => {
         <div className="absolute left-0 mt-2 w-56 origin-top-left bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none">
           <div className="py-1">
             <a
-              href="https://drive.google.com/file/d/1dKQSwVRxtKX64YR0P2MihrdwaE81Wy-z/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Mw55fw1FKCpKJJaBtVH-JZP8GFM9X-Sx/view"
               target="_blank"
               rel="noopener noreferrer"
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
