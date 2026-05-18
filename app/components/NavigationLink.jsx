@@ -4,7 +4,7 @@ const NavigationLink = ({ href, title }) => {
   return (
     <Link
       href={href}
-      className="block py-2 pl-3 pr-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 hover:text-white"
+      className="block rounded-full px-3 py-2 text-sm text-slate-300 transition hover:bg-[#E57200]/10 hover:text-white sm:text-base"
     >
       {title}
     </Link>

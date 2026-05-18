@@ -30,7 +30,7 @@ const ResumeDropdown = () => {
     <div className="relative inline-block text-left" ref={dropdownRef}>
       <button
         onClick={handleButtonClick}
-        className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#232D4B] via-[#4169e1] to-[#D9451F] hover:bg-slate-200 text-white"
+        className="rounded-full border border-cyan-300/30 bg-gradient-to-r from-cyan-400 via-sky-500 to-orange-400 px-6 py-3 font-medium text-slate-950 transition hover:scale-[1.02]"
       >
         Open Resume
       </button>

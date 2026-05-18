@@ -1,154 +1,133 @@
 "use client";
-import React, { useTransition, useState } from "react";
-import NavigationLink from "./NavigationLink";
-import Image from "next/image";
-import TabUtil from "./TabUtil";
+import React from "react";
 
-const TAB_DATA = [
-  {
-    title: "Skills",
-    id: "skills",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Java</li>
-        <li>Python</li>
-        <li>Javascript</li>
-        <li>Numpy, Pandas</li>
-        <li>Scikit-Learn</li>
-        <li>Tensorflow</li>
-        <li>Git</li>
-        <li>Matplotlib</li>
-        <li>React</li>
-        <li>React Native</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>University of Virginia</li>
-        <li>
-          Computer Science in the College of Engineering and Applied Sciences
-        </li>
-        <li>Minor in Data Science</li>
-        <li>Minor in General Business from the McIntire School of Commerce</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>J.P. Morgan Chase Investment Banking Job Simulation</li>
-        <li>J.P. Morgan Chase Software Engineering Virtual Experience</li>
-        <li>Wells Fargo Software Engineering Job Simulation</li>
-        <li>PwC US Cyber Security ConsultingJob Simulation</li>
-        <li>Mastercard Cybersecurity virtual experience program</li>
-        <li>BCG GenAI Job Simulation</li>
-        <li>BCG Strategy Consulting Job Simulation</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Experience",
-    id: "experience",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Full Stack Developer Intern @ Pharaoh Analytics</li>
-        <li>Software Intern @ NTConcepts</li>
-        <li>Cloud Intern @ Navitas Business Consulting</li>
-      </ul>
-    ),
-  },
+const SUMMARY_POINTS = [
+  "Wells Fargo CCIBT: incoming software engineering intern focused on commercial, corporate, and investment banking technology",
+  "Nightwing: built modular AI anomaly detection pipelines, data validation systems, and automated analytics workflows",
+  "NT Concepts: improved Java REST APIs, MongoDB-backed services, React interfaces, testing reliability, and production support workflows",
 ];
 
-const IMAGES = [
-  "/images/AboutMe/ResearchDouble.png",
-  "/images/AboutMe/SimRacing.png",
-  "/images/AboutMe/PC.png",
+const EXPERIENCE_HIGHLIGHTS = [
+  "Backend engineering with Java, Spring Boot, REST APIs, MongoDB, and production-facing services",
+  "Machine learning and data work using Python, Pandas, NumPy, scikit-learn, TensorFlow, and anomaly detection pipelines",
+  "Cloud and systems exposure through AWS, Terraform, Docker, CI/CD, Kafka, and enterprise-scale workflows",
+  "Frontend and product execution with React, React Native, debugging, usability improvements, and polished application delivery",
+];
+
+const SKILLS = [
+  "Java",
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "SQL",
+  "React",
+  "Spring Boot",
+  "AWS",
+  "Docker",
+  "MongoDB",
+];
+
+const COURSEWORK = [
+  "Artificial Intelligence",
+  "Natural Language Processing",
+  "Computer Vision",
+  "Data Structures and Algorithms",
+  "Linear Algebra",
+  "Probability",
 ];
 
 const AboutMe = () => {
-  const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
-
-  const handleImageClick = (index) => {
-    setCurrentImageIndex(index);
-  };
-
   return (
-    <section id="about" className="text-white">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <div className="flex flex-col">
-          <Image
-            src={IMAGES[currentImageIndex]}
-            width={900}
-            height={900}
-            alt="Main Image"
-          />
-          <div className="flex mt-4 space-x-2">
-            {IMAGES.map((src, index) => (
-              <Image
-                key={index}
-                src={src}
-                width={100}
-                height={100}
-                alt={`Thumbnail ${index + 1}`}
-                onClick={() => handleImageClick(index)}
-                className="cursor-pointer"
-              />
-            ))}
-          </div>
-        </div>
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About me</h2>
-          <p className="text-base md:text-lg">
-            I am from the Northern Virginia area, specifically Loudoun County.
-            In my free time I love playing sports, specifically basketball,
-            football, golf, and pickleball. I also like to go on runs and I am
-            currently training to run a half-marathon. I am also a huge fan of
-            motorsports and even sim race in tournaments from time to time.
-          </p>
-          <div className="flex flex-row justify-start mt-8">
-            <TabUtil
-              selectTab={() => handleTabChange("skills")}
-              active={tab === "skills"}
-            >
-              Skills
-            </TabUtil>
+    <section id="about" className="py-16 sm:py-20">
+      <div className="max-w-5xl">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#E57200]">
+          About
+        </p>
+        <h2 className="text-3xl font-bold text-white sm:text-4xl">
+          Resume snapshot
+        </h2>
 
-            <TabUtil
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              Education
-            </TabUtil>
+        <div className="mt-8 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
+            <p className="text-xs uppercase tracking-[0.24em] text-[#E57200]">
+              Summary
+            </p>
+            <p className="mt-4 text-base leading-8 text-slate-300">
+              Computer science student at the University of Virginia focused on
+              software engineering, machine learning, and data analytics. Experience spans backend systems, frontend
+              applications, cloud infrastructure, data science, and AI tooling. Looking to develop and apply their skills at
+              the intersection of business and computer science. 
+            </p>
 
-            <TabUtil
-              selectTab={() => handleTabChange("experience")}
-              active={tab === "experience"}
-            >
-              Experience
-            </TabUtil>
-            <TabUtil
-              selectTab={() => handleTabChange("certifications")}
-              active={tab === "certifications"}
-            >
-              Certifications
-            </TabUtil>
+            <div className="mt-6 space-y-4 text-slate-300">
+              {SUMMARY_POINTS.map((point) => (
+                <div key={point} className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-[#E57200]" />
+                  <p>{point}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+
+          <div className="grid gap-4">
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[#E57200]">
+                Education
+              </p>
+              <p className="mt-4 text-lg text-white">University of Virginia</p>
+              <p className="mt-2 text-sm text-slate-300">
+                B.S. in Computer Science, expected May 2027
+              </p>
+              <p className="mt-2 text-sm text-slate-300">
+                GPA 3.5 · Minor in General Business
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[#E57200]">
+                Relevant Strengths
+              </p>
+              <div className="mt-4 space-y-3 text-sm text-slate-300">
+                {EXPERIENCE_HIGHLIGHTS.map((point) => (
+                  <div key={point} className="flex gap-3">
+                    <span className="mt-2 h-2 w-2 rounded-full bg-[#E57200]" />
+                    <p>{point}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[#E57200]">
+                Core Skills
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2 text-sm text-slate-300">
+                {SKILLS.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-2"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs uppercase tracking-[0.24em] text-[#E57200]">
+                Relevant Coursework
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2 text-sm text-slate-300">
+                {COURSEWORK.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 bg-white/5 px-3 py-2"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

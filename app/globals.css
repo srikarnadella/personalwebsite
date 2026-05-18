@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 237, 242, 247;
+  --background-start-rgb: 5, 8, 18;
+  --background-end-rgb: 16, 22, 40;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,14 +16,43 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background:
+    radial-gradient(circle at top left, rgba(35, 45, 75, 0.7), transparent 24%),
+    radial-gradient(circle at 82% 10%, rgba(229, 114, 0, 0.16), transparent 18%),
+    radial-gradient(circle at 68% 58%, rgba(65, 105, 225, 0.18), transparent 28%),
+    linear-gradient(180deg, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  opacity: 0.45;
+}
+
+.site-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image:
+    radial-gradient(circle at 1px 1px, white 1px, transparent 0);
+  background-size: 20px 20px;
 }
 
 @layer utilities {

@@ -1,100 +1,22 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
-import ResumeDropdown from "./ResumeDropdown";
+import AsciiArtHero from "./AsciiArtHero";
 
 const MainPage = () => {
   return (
-    <section id="">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
-        <div className="col-span-7 place-self-center text-center sm:text-left">
-          <h1 className="text-white mb-4 text-5xl sm:text-6xl lg:text-7xl font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4169e1] to-[#E57200]">
-              Hello, I&#39;m{" "}
-            </span>
-            <br></br>
-            <TypeAnimation
-              sequence={[
-                "Srikar Nadella",
-                1000,
-                "a student at the University of Virginia",
-                1000,
-                "a Computer Science Major",
-                1000,
-                "a Software Engineer",
-                1000,
-                "a Problem Solver",
-                1000,
-                "a Data Analyst",
-                1000,
-                "a Consultant",
-                1000,
-                "a Wahoo",
-                1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-            />
-          </h1>
-          <p className="text-[#ADB7BE] text-base sm-text-lg mb-6 lg:text-xl">
-            I am a student at the University of Virginia in the School of
-            Engineering and Applied Sciences where I major in Computer Science.
-            I am also currently pursuing minors in Data Science and a General
-            Business from the McIntire School of Commerce. My career aspirations
-            are to work in consulting or as a software engineer due to the wide
-            variety of problems that I will be challenged with. Currently I am
-            working on developing my Machine Learning/AI skills, data cleaning
-            techniques, and technical writing and documentation. I am interested
-            in a lot of different fields ranging from history to economics to
-            computer science so I am eager to learn and tackle any sort tasks!
-            You can find me working on one of my various projects whether it is
-            my Golf Caddy app or a market analyzer. Reach out if you are
-            recruiting for a role or want to work on something together!
-          </p>
-          <div>
-            <ResumeDropdown />
-            <a
-              href="https://docs.google.com/document/d/1Y4Q39NdfvmJHndFQL1hIeA1w4-uHetEWGG3wR3VOtKo/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#232D4B] via-[#4169e1] to-[#D9451F] hover:bg-slate-200 text-white">
-                Open Cover Letter
-              </button>
-            </a>
-            <a
-              href="https://github.com/srikarnadella"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#232D4B] via-[#4169e1] to-[#D9451F] hover:bg-[#D9451F] text-white">
-                Github
-              </button>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/srikar-nadella/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-[#232D4B] via-[#4169e1] to-[#D9451F] hover:bg-[#D9451F] text-white">
-                Linkedin
-              </button>
-            </a>
-          </div>
-        </div>
-        <div className="col-span-5 place-self-center mt-4 lg:mt-0">
-          <div className="rounded-full overflow-hidden bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative p-1">
-            <Image
-              src="/images/pfp.png"
-              alt="Profile picture"
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
-              width={300}
-              height={300}
-            />
-          </div>
-        </div>
+    <section id="home" className="relative py-8 sm:py-12">
+      <div className="absolute inset-x-0 top-0 -z-10 h-full bg-[radial-gradient(circle_at_12%_14%,rgba(65,105,225,0.18),transparent_30%),radial-gradient(circle_at_88%_12%,rgba(229,114,0,0.14),transparent_26%)]" />
+      <div className="mb-4 max-w-5xl">
+        <p className="text-4xl font-black uppercase tracking-[0.16em] text-white sm:text-5xl lg:text-[4.6rem]">
+          Srikar Nadella
+        </p>
+      </div>
+
+      <div className="h-[34rem] min-h-[34rem]">
+        <AsciiArtHero
+          title="srikar-terminal"
+          summary="Commands: bio, skills, work, projects, contact, links, funfacts, resume, github, help, clear"
+        />
       </div>
     </section>
   );

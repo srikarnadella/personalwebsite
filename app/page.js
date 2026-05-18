@@ -1,27 +1,20 @@
-import Image from "next/image";
 import MainPage from "./components/MainPage";
 import NavigationBar from "./components/NavigationBar";
 import AboutMe from "./components/AboutMe";
-import ProjectsTab from "./components/ProjectsTab";
-import AchievementSection from "./components/AchievementSection";
+import FeaturedProjects from "./components/FeaturedProjects";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
-import ScrollingImageTiles from "./components/ScrollingImageTiles";
 import { Analytics } from "@vercel/analytics/react";
-import Blog from "./components/Blog";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-black">
+    <main className="site-shell flex min-h-screen flex-col text-white">
       <Analytics />
       <NavigationBar />
-      <div class="container mt-24 mx-auto px-12 py-4">
+      <div className="mx-auto mt-20 w-full max-w-7xl px-5 py-4 lg:px-8">
         <MainPage />
-        <div style={{ padding: "40px", margin: "20px" }}></div>
-        <AchievementSection />
+        <div className="h-8 sm:h-12" />
         <AboutMe />
-        <ScrollingImageTiles />
-        <ProjectsTab />
-        <Blog />
+        <FeaturedProjects />
         <EmailSection />
       </div>
       <Footer></Footer>
