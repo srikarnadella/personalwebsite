@@ -69,7 +69,7 @@ const AsciiArtHero = ({
   title = "srikar-terminal",
   summary = "Commands: bio, skills, work, projects, contact, links, funfacts, help, clear",
 }) => {
-  const [activeCommand, setActiveCommand] = useState("bio");
+  const [activeCommand, setActiveCommand] = useState("work");
   const [inputValue, setInputValue] = useState("");
   const [history, setHistory] = useState([]);
   const [booted, setBooted] = useState(false);
@@ -90,7 +90,7 @@ const AsciiArtHero = ({
       setBooted(true);
       setHistory((current) => [
         ...current,
-        { type: "command", command: "bio", output: COMMANDS.bio },
+        { type: "command", command: "work", output: COMMANDS.work },
       ]);
     }, 560);
 
@@ -164,13 +164,13 @@ const AsciiArtHero = ({
       </div>
 
       <div className="relative z-10 flex items-center gap-3 border-b border-white/8 px-4 py-3 font-mono text-xs text-slate-500">
-        <span className="text-[#E57200]">~/commands</span>
+        <span className="text-[11px] uppercase tracking-widest text-slate-600">explore</span>
         <div className="flex flex-wrap gap-2">
           {SHORTCUTS.map((command) => (
             <button
               key={command}
               onClick={() => runCommand(command)}
-              className="rounded border border-white/10 px-2 py-1 text-slate-300 transition hover:border-[#E57200]/30 hover:text-white"
+              className="rounded-md border border-[#E57200]/20 bg-[#E57200]/8 px-2.5 py-1 text-xs text-[#F7A64A] transition hover:border-[#E57200]/50 hover:bg-[#E57200]/15 hover:text-white active:scale-95"
             >
               {command}
             </button>
@@ -182,8 +182,6 @@ const AsciiArtHero = ({
         ref={outputRef}
         className="relative z-10 flex-1 overflow-auto px-4 py-4 font-mono text-[15px] leading-8 text-slate-200"
       >
-        <div className="mb-4 text-sm text-slate-500">{summary}</div>
-
         {history.map((entry, index) => (
           <div key={`${entry.command ?? "system"}-${index}`} className="mb-4">
             {entry.command ? (

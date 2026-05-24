@@ -8,7 +8,7 @@ const EmailSection = () => {
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200/65">
           Contact
         </p>
-        <h2 className="text-3xl font-bold text-white sm:text-4xl">
+        <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
           Let&apos;s connect
         </h2>
         <p className="mt-4 text-base leading-7 text-slate-300">

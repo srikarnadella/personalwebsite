@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 237, 242, 247;
+  --foreground-rgb: 240, 235, 227;
   --background-start-rgb: 5, 8, 18;
   --background-end-rgb: 16, 22, 40;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 240, 235, 227;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+  font-family: var(--font-body), "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
   color: rgb(var(--foreground-rgb));
   background:
     radial-gradient(circle at top left, rgba(35, 45, 75, 0.7), transparent 24%),
