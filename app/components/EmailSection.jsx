@@ -1,44 +1,67 @@
 "use client";
 import React from "react";
 
-const EmailSection = () => {
+export default function EmailSection() {
   return (
-    <section id="contact" className="py-16 sm:py-20">
-      <div className="max-w-2xl rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-8">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200/65">
-          Contact
-        </p>
-        <h2 className="font-display text-3xl font-bold text-white sm:text-4xl">
-          Let&apos;s connect
-        </h2>
-        <p className="mt-4 text-base leading-7 text-slate-300">
-          I am looking for software engineering internships and new grad
-          opportunities. Feel free to reach out.
-        </p>
+    <section id="contact" className="py-24 sm:py-32">
+      {/* Orange rule */}
+      <div className="flex items-center gap-4 mb-12">
+        <div className="h-px w-10 bg-[#E57200]" />
+        <div className="h-px flex-1 bg-white/5" />
+      </div>
 
-        <div className="mt-6 flex flex-wrap gap-3">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+        <div>
+          <h2
+            className="font-display font-extrabold text-white leading-[0.92] tracking-tight"
+            style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)" }}
+          >
+            Let&apos;s<br />
+            <span className="text-[#E57200]">talk.</span>
+          </h2>
+          <p className="mt-5 text-base text-slate-400 max-w-sm leading-relaxed">
+            Open to SWE new grad opportunities. Reach out directly.
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-3 md:items-end">
           <a
             href="mailto:nadellasrikar@gmail.com"
-            className="rounded-full border border-cyan-300/30 bg-cyan-300/12 px-5 py-3 text-sm text-white transition hover:bg-cyan-300/18"
+            className="group flex items-center gap-3 text-white hover:text-[#E57200] transition-colors duration-200"
           >
-            nadellasrikar@gmail.com
+            <span className="font-display text-lg font-semibold">nadellasrikar@gmail.com</span>
+            <span className="text-[#E57200] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
           </a>
-          <a
-            href="https://www.linkedin.com/in/srikar-nadella/"
-            className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white transition hover:bg-white/10"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://github.com/srikarnadella"
-            className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm text-white transition hover:bg-white/10"
-          >
-            GitHub
-          </a>
+          <div className="flex gap-4 mt-1">
+            <a
+              href="https://www.linkedin.com/in/srikar-nadella/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-slate-500 hover:text-white transition-colors duration-200 tracking-wide"
+            >
+              LinkedIn
+            </a>
+            <span className="text-white/10">·</span>
+            <a
+              href="https://github.com/srikarnadella"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-slate-500 hover:text-white transition-colors duration-200 tracking-wide"
+            >
+              GitHub
+            </a>
+            <span className="text-white/10">·</span>
+            <a
+              href="https://drive.google.com/file/d/187GaEsLjC-3vQGv14rtILkirUAjiiJJC/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-slate-500 hover:text-white transition-colors duration-200 tracking-wide"
+            >
+              Resume
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default EmailSection;
+}

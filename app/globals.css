@@ -3,17 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 240, 235, 227;
-  --background-start-rgb: 5, 8, 18;
-  --background-end-rgb: 16, 22, 40;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 240, 235, 227;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --orange: #E57200;
+  --orange-dim: #c46200;
+  --bg: #06080f;
+  --fg: 238, 232, 222;
 }
 
 html {
@@ -21,42 +14,43 @@ html {
 }
 
 body {
-  font-family: var(--font-body), "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
-  color: rgb(var(--foreground-rgb));
-  background:
-    radial-gradient(circle at top left, rgba(35, 45, 75, 0.7), transparent 24%),
-    radial-gradient(circle at 82% 10%, rgba(229, 114, 0, 0.16), transparent 18%),
-    radial-gradient(circle at 68% 58%, rgba(65, 105, 225, 0.18), transparent 28%),
-    linear-gradient(180deg, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  font-family: var(--font-body), "Onest", system-ui, sans-serif;
+  color: rgb(var(--fg));
+  background: var(--bg);
   min-height: 100vh;
 }
 
+/* Subtle warm grain — single layer, no grid */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: radial-gradient(circle at center, black, transparent 90%);
-  opacity: 0.45;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(229,114,0,0.04) 0%, transparent 70%);
+  z-index: 0;
 }
 
-.site-shell::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.06;
-  background-image:
-    radial-gradient(circle at 1px 1px, white 1px, transparent 0);
-  background-size: 20px 20px;
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+.animate-scroll { animation: scroll-bounce 1.6s ease-out infinite; }
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-name       { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-role       { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
+.hero-experience { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
+.hero-stack      { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name, .hero-role, .hero-experience, .hero-stack,
+  .animate-scroll { animation: none; }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
 }

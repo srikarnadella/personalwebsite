@@ -2,10 +2,14 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer z-10 border-t border-white/10 text-white">
-      <div className="mx-auto flex max-w-7xl justify-between px-5 py-8 text-sm text-slate-400 lg:px-8">
-        <span>Srikar Nadella</span>
-        <p>CS @ UVa &lsquo;27 &middot; Software Engineering</p>
+    <footer className="border-t border-white/6">
+      <div className="mx-auto flex max-w-7xl justify-between items-center px-5 py-6 lg:px-8">
+        <span className="font-display font-semibold text-sm text-slate-500 tracking-wide">
+          Srikar Nadella
+        </span>
+        <p className="text-xs text-slate-700 tracking-wider">
+          CS @ UVa &rsquo;27
+        </p>
       </div>
     </footer>
   );
