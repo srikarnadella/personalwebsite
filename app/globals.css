@@ -46,9 +46,33 @@ body::before {
 .hero-experience { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
 .hero-stack      { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.3s; }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.narrative-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.narrative-collapse.is-open {
+  grid-template-rows: 1fr;
+}
+.narrative-collapse > div {
+  overflow: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-name, .hero-role, .hero-experience, .hero-stack,
   .animate-scroll { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .narrative-collapse { transition: none; }
 }
 
 @layer utilities {

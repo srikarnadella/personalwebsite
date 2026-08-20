@@ -1,16 +1,11 @@
-"use client";
 import React from "react";
+import { HERO } from "../data/site-content";
+import RevealBlock from "./sections/RevealBlock";
 
 export default function EmailSection() {
   return (
     <section id="contact" className="py-24 sm:py-32">
-      {/* Orange rule */}
-      <div className="flex items-center gap-4 mb-12">
-        <div className="h-px w-10 bg-[#E57200]" />
-        <div className="h-px flex-1 bg-white/5" />
-      </div>
-
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+      <RevealBlock as="div" className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
         <div>
           <h2
             className="font-display font-extrabold text-white leading-[0.92] tracking-tight"
@@ -37,7 +32,7 @@ export default function EmailSection() {
               href="https://www.linkedin.com/in/srikar-nadella/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-500 hover:text-white transition-colors duration-200 tracking-wide"
+              className="text-sm font-medium text-slate-500 hover:text-[#E57200] transition-colors duration-200 tracking-wide"
             >
               LinkedIn
             </a>
@@ -46,22 +41,22 @@ export default function EmailSection() {
               href="https://github.com/srikarnadella"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-500 hover:text-white transition-colors duration-200 tracking-wide"
+              className="text-sm font-medium text-slate-500 hover:text-[#E57200] transition-colors duration-200 tracking-wide"
             >
               GitHub
             </a>
             <span className="text-white/10">·</span>
             <a
-              href="https://drive.google.com/file/d/187GaEsLjC-3vQGv14rtILkirUAjiiJJC/view?usp=sharing"
+              href={HERO.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-500 hover:text-white transition-colors duration-200 tracking-wide"
+              className="text-sm font-medium text-slate-500 hover:text-[#E57200] transition-colors duration-200 tracking-wide"
             >
               Resume
             </a>
           </div>
         </div>
-      </div>
+      </RevealBlock>
     </section>
   );
 }

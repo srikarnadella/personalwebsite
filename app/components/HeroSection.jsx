@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import dynamic from "next/dynamic"
+import { HERO } from "../data/site-content"
 
 const ShaderAnimation = dynamic(
   () => import("./ShaderAnimation").then((m) => m.ShaderAnimation),
@@ -43,8 +44,11 @@ export default function HeroSection() {
           <span className="text-[#E57200]">Nadella</span>
         </h1>
 
-        <p className="mt-6 text-sm text-slate-300 hero-role" style={{ letterSpacing: "0.01em" }}>
-          SWE Intern @ Wells Fargo &nbsp;&middot;&nbsp; CS @ UVA
+        <p
+          className="mt-6 max-w-md text-[0.95rem] text-slate-300 hero-role leading-relaxed"
+          style={{ letterSpacing: "0.01em" }}
+        >
+          {HERO.role}
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3 hero-stack">
@@ -58,7 +62,7 @@ export default function HeroSection() {
             LinkedIn
           </a>
           <a
-            href="https://drive.google.com/file/d/187GaEsLjC-3vQGv14rtILkirUAjiiJJC/view?usp=sharing"
+            href={HERO.resume}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"

@@ -1,6 +1,6 @@
 import NavigationBar from "./components/NavigationBar";
 import HeroSection from "./components/HeroSection";
-import InteractiveTile from "./components/InteractiveTile";
+import PortfolioSections from "./components/PortfolioSections";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/react";
@@ -12,7 +12,7 @@ export default function Home() {
       <NavigationBar />
       <HeroSection />
       <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-        <InteractiveTile />
+        <PortfolioSections />
         <EmailSection />
       </div>
       <Footer />

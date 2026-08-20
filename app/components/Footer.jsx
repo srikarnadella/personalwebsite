@@ -8,7 +8,7 @@ const Footer = () => {
           Srikar Nadella
         </span>
         <p className="text-xs text-slate-700 tracking-wider">
-          CS @ UVa &rsquo;27
+          Built with Next.js &amp; Three.js
         </p>
       </div>
     </footer>

@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const navLinks = [
   { title: "Home", path: "#home" },
+  { title: "Work", path: "#projects" },
   { title: "Experience", path: "#tiles" },
-  { title: "Projects", path: "#projects" },
   { title: "Contact", path: "#contact" },
 ];
 
