@@ -3,78 +3,185 @@
 @tailwind utilities;
 
 :root {
-  --orange: #E57200;
-  --orange-dim: #c46200;
   --bg: #06080f;
-  --fg: 238, 232, 222;
+  --surface: #10141e;
+  --surface-2: #171c28;
+  --surface-3: #1f2533;
+  --ink: #e9e7e2;
+  --muted: #a19b91;
+  --accent: #e57200;
+  --accent-ink: #0b0704;
+
+  /* Five sizes do all the work */
+  --t-display: clamp(3.5rem, 9vw, 9.5rem);
+  --t-heading: clamp(2.5rem, 5vw, 4.5rem);
+  --t-list: clamp(1.1875rem, 2.1vw, 1.875rem);
+  --t-body: 1.0625rem;
+  --t-small: 0.875rem;
+
+  --margin: clamp(16px, 3vw, 40px);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-hover: 180ms;
+  --t-reveal: 900ms;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px;
 }
 
 body {
   font-family: var(--font-body), "Onest", system-ui, sans-serif;
-  color: rgb(var(--fg));
+  font-size: var(--t-body);
+  line-height: 1.55;
+  color: var(--ink);
   background: var(--bg);
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
-/* Subtle warm grain — single layer, no grid */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(229,114,0,0.04) 0%, transparent 70%);
-  z-index: 0;
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Buttons: square corners, one fill, decided once */
+.btn {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.4rem;
+  font-weight: 600;
+  font-size: var(--t-body);
+  background: var(--accent);
+  color: var(--accent-ink);
+  transition: transform 0.2s var(--ease-out), background-color 0.2s;
+}
+.btn:hover { background: #ff8a1a; transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+
+.link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent);
+  text-underline-offset: 0.25em;
+  transition: color 0.2s, text-decoration-color 0.2s;
+}
+.link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+/* The stationery. Edges are cut with masks: these gradients shape the edges, they are never seen as colour */
+.pass {
+  --r: 26px;
+  -webkit-mask: radial-gradient(circle var(--r) at 0 0, #0000 98%, #000) top left / 51% 51% no-repeat, radial-gradient(circle var(--r) at 100% 0, #0000 98%, #000) top right / 51% 51% no-repeat, radial-gradient(circle var(--r) at 0 100%, #0000 98%, #000) bottom left / 51% 51% no-repeat, radial-gradient(circle var(--r) at 100% 100%, #0000 98%, #000) bottom right / 51% 51% no-repeat; /* taste-skill-ignore */
+  mask: radial-gradient(circle var(--r) at 0 0, #0000 98%, #000) top left / 51% 51% no-repeat, radial-gradient(circle var(--r) at 100% 0, #0000 98%, #000) top right / 51% 51% no-repeat, radial-gradient(circle var(--r) at 0 100%, #0000 98%, #000) bottom left / 51% 51% no-repeat, radial-gradient(circle var(--r) at 100% 100%, #0000 98%, #000) bottom right / 51% 51% no-repeat; /* taste-skill-ignore */
+}
+.letter {
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat, radial-gradient(circle 9px at 50% 100%, #0000 98%, #000) bottom / 26px 20px repeat-x; /* taste-skill-ignore */
+  mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat, radial-gradient(circle 9px at 50% 100%, #0000 98%, #000) bottom / 26px 20px repeat-x; /* taste-skill-ignore */
+}
+.scallop-top {
+  -webkit-mask: linear-gradient(#000 0 0) bottom / 100% calc(100% - 18px) no-repeat, radial-gradient(circle 18px at 50% 0, #0000 98%, #000) top / calc(100% / 12) 40px repeat-x; /* taste-skill-ignore */
+  mask: linear-gradient(#000 0 0) bottom / 100% calc(100% - 18px) no-repeat, radial-gradient(circle 18px at 50% 0, #0000 98%, #000) top / calc(100% / 12) 40px repeat-x; /* taste-skill-ignore */
+}
+@media (max-width: 767px) {
+  .scallop-top { -webkit-mask-size: 100% calc(100% - 18px), calc(100% / 6) 40px; mask-size: 100% calc(100% - 18px), calc(100% / 6) 40px; }
+}
+/* Perforations: a row of round dots cut across the letter, above the tear-off strip */
+.perforation { border-top: 5px dotted var(--bg); margin: 0 12px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .curtain:not(.is-open) { visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .curtain { position: static; }
 }
 
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(6px); }
-}
-.animate-scroll { animation: scroll-bounce 1.6s ease-out infinite; }
+.archive-row { transition: background-color var(--t-hover); }
+.archive-row:hover, .archive-row:focus-visible { background: var(--surface); }
 
-@keyframes hero-rise {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* Folders. Each tab sits at its own slot along the top edge, so the tabs of the folders beneath
+   stay visible as the folders pile up */
+.folder { background: var(--tone); }
+.folder-tab {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  max-width: 80%;
+  height: 40px;
+  padding: 0 18px;
+  background: var(--tone, var(--surface-3));
+  color: var(--ink);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-radius: 14px 14px 0 0;
+  transition: background-color var(--t-hover), color var(--t-hover);
+}
+.folder-tab:hover, .folder-tab.is-active { background: var(--accent); color: var(--accent-ink); }
+@media (min-width: 1024px) {
+  .folder-tab {
+    left: calc(var(--n) * (100% + 6px) / var(--count));
+    width: calc((100% - (var(--count) - 1) * 6px) / var(--count));
+    max-width: none;
+    height: 44px;
+    padding: 0 14px;
+    font-size: var(--t-body);
+  }
+  .folder-tab.own { display: none; }
 }
 
-.hero-name       { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.hero-role       { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.1s; }
-.hero-experience { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.2s; }
-.hero-stack      { animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both 0.3s; }
+.arrow { display: inline-block; transition: transform 0.25s var(--ease-out); }
+a:hover .arrow, a:focus-visible .arrow { transform: translateX(4px); }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Hero load: the name rises out of a mask line by line, the rest follows; all done by 1.2s */
+.line { display: block; overflow: clip; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+.line-in { display: block; }
+@keyframes line-rise { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .line-in { animation: line-rise 1s var(--ease-expo) both; animation-delay: calc(var(--i, 0) * 90ms); }
+  .hero-in { animation: rise 0.8s var(--ease-expo) both; animation-delay: calc(var(--i, 0) * 90ms); }
 }
 
-.narrative-collapse {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+/* Section entrances. Content is only hidden once the script is running, so it never stays invisible */
+@media (prefers-reduced-motion: no-preference) {
+  .js .rv {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition: opacity var(--t-reveal) var(--ease-expo), transform var(--t-reveal) var(--ease-expo);
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+  .js .is-visible .rv { opacity: 1; transform: none; }
+
+  /* Pictures settle from a slight scale inside their frame instead of sliding */
+  .js .rv-pic { overflow: clip; }
+  .js .rv-pic > img { transform: scale(1.08); transition: transform 1.4s var(--ease-expo); }
+  .js .is-visible .rv-pic > img { transform: scale(1); }
+
+  /* List rows arrive one after another */
+  .js .rv-row { opacity: 0; transform: translate3d(0, 12px, 0); transition: opacity 0.6s var(--ease-expo), transform 0.6s var(--ease-expo); transition-delay: calc(var(--i, 0) * 45ms); }
+  .js .is-visible .rv-row { opacity: 1; transform: none; }
 }
-.narrative-collapse.is-open {
-  grid-template-rows: 1fr;
+
+/* Cards: the picture eases in a touch on hover, and gives under the press */
+.card-pic img { transition: transform 0.9s var(--ease-expo); }
+.card:hover .card-pic img, .card:focus-visible .card-pic img { transform: scale(1.035); }
+.card { transition: transform var(--t-hover) var(--ease-out); }
+.card:active { transform: scale(0.99); }
+
+/* Slow drift on the about photograph */
+@keyframes drift {
+  from { transform: scale(1.02) translate(0, 0); }
+  to   { transform: scale(1.1) translate(-2%, -1%); }
 }
-.narrative-collapse > div {
-  overflow: hidden;
-}
+.drift { animation: drift 24s ease-in-out infinite alternate; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-name, .hero-role, .hero-experience, .hero-stack,
-  .animate-scroll { animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .narrative-collapse { transition: none; }
-}
-
-@layer utilities {
-  .text-balance { text-wrap: balance; }
+  html { scroll-behavior: auto; }
+  .drift { animation: none; }
+  .btn, .arrow, .card, .card-pic img { transition: none; }
 }

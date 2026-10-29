@@ -1,8 +1,8 @@
 export const HERO = {
   name: "Srikar Nadella",
-  role: "Fintech infrastructure at Wells Fargo. Fraud-detection ML at Nightwing. CS @ UVA, open to new grad SWE roles.",
+  role: "CS at UVA. I build software for F1, the markets and anything with data. Open to New Grad SWE roles.",
   linkedin: "https://www.linkedin.com/in/srikar-nadella/",
-  resume: "https://drive.google.com/file/d/1XOGML7pMAEYlgHb5b0ZppEXt81wFyRnG/view?usp=sharing",
+  resume: "https://drive.google.com/file/d/1iYqM8iDdflOOS9-iNEsyObbX1eQZbnv1/view?usp=sharing",
   github: "https://github.com/srikarnadella",
   email: "nadellasrikar@gmail.com",
 }
@@ -68,55 +68,125 @@ export const LEADERSHIP = [
   },
 ]
 
+// Featured work, in the order the index shows it. `image` is a real screenshot in
+// /public/projects; projects without one show `figure` (a key number) instead.
 export const PROJECTS = [
   {
+    slug: "undercut",
+    title: "Undercut",
+    kind: "Live race engineer",
+    year: "2026",
+    description:
+      "A race engineer for F1 26. It reads the telemetry the game sends for every car on track and turns it into radio calls: push, hold or box, who to attack, when the rain arrives, read out loud when there's no time to glance over. A real-time Node.js pipeline ingests about 330 UDP packets a second, streams results over WebSockets and stores every race in SQLite for the post-race debrief.",
+    result: "Scored on 11 recorded races, the LightGBM overtake model reaches 0.866 AUC against 0.837 for the gap alone, and rejoin predictions after a stop land 3.1 places off against 6.4 for the obvious guess.",
+    stack: "Node.js · WebSockets · SQLite · Python · LightGBM",
+    image: "/projects/undercut-drive.png",
+    gallery: [
+      { src: "/projects/undercut-battle.png", alt: "Undercut's Battle screen" },
+      { src: "/projects/undercut-strategy.png", alt: "Undercut's Strategy screen" },
+      { src: "/projects/undercut-debrief.png", alt: "Undercut's post-race Debrief screen" },
+    ],
+    imageAlt: "Undercut's Drive screen: a PUSH call, the gap to Hamilton ahead and Hadjar behind, and tyre, pit, weather and car projections",
+    liveUrl: "https://srikarnadella.github.io/f1-race-engineer/",
+    gitUrl: "https://github.com/srikarnadella/f1-race-engineer",
+    postUrl: "https://lnkd.in/p/ezYEwtmz",
+  },
+  {
+    slug: "f1-forecaster",
+    title: "F1 Forecaster",
+    kind: "Race forecasting pipeline",
+    year: "2026",
+    description:
+      "Forecasts the winner, podium, finishing order and championship from practice, qualifying and sprint data, then scores every forecast against what actually happened. Also breaks down race pace, tyre wear and where each car gains or loses time, from 2023 onward via OpenF1.",
+    result: "Runs itself on race weekends: forecasts after qualifying, reviews after the race, and only promotes a new model when it beats the champion in walk-forward tests.",
+    stack: "Python · PyTorch · MLflow · Optuna · Streamlit · GitHub Actions",
+    image: "/projects/f1-forecaster.jpg",
+    imageAlt: "F1 Forecaster's next-race page: the Mexico City GP pace projection by team",
+    liveUrl: "https://f1forecasting.streamlit.app/",
+    gitUrl: "https://github.com/srikarnadella/f1-raceforcaster",
+  },
+  {
+    slug: "sp500-screener",
+    title: "Level Screener",
+    kind: "S&P 500 market screen",
+    year: "2026",
+    description:
+      "Screens every S&P 500 stock for setups at the moving averages and Bollinger Bands that stock has actually respected, tested against a placebo baseline of fake levels, then re-ranks the results for the VIX regime.",
+    result: "Publishes itself each weekday after the close, with breadth, credit spreads, sector strength and a forward-tested record of its own picks.",
+    stack: "Python · pandas · yfinance · FRED · GitHub Pages",
+    image: "/projects/sp500.png",
+    imageAlt: "The S&P 500 level-respect screen showing the VIX regime, conviction score and breadth figures",
+    liveUrl: "https://srikarnadella.github.io/sp500-screener/",
+    gitUrl: "https://github.com/srikarnadella/sp500-screener",
+  },
+  {
+    slug: "plutus",
     title: "Plutus",
-    description: "Full-stack personal finance platform with Supabase Auth (Google OAuth) and JWT-gated Java endpoints isolating PII across Plaid-sourced transaction data. Outlier detection, subscription-pattern recognition, 6-month trend aggregation, and per-category budget alerts.",
-    stack: "React · TypeScript · Java · Spring Boot · Plaid API · OAuth",
+    kind: "Personal finance platform",
+    year: "2026",
+    description:
+      "Connect a bank once through Plaid and see where the money actually goes: categorized spending, detected subscriptions, flagged outliers, per-category budgets and savings goals. Built as a free replacement for the budgeting apps that charge a subscription.",
+    result: "A Java Dropwizard API with a three-tier transaction cache (memory, Supabase, Plaid delta sync) keeps repeat loads fast; Supabase Auth keeps each user's data isolated.",
+    stack: "React · TypeScript · Java · Dropwizard · Plaid · Supabase",
+    image: "/projects/plutus.png",
+    imageAlt: "Plutus landing page: Your money, finally clear",
+    liveUrl: "https://plutus-sandbox-demo.vercel.app",
     gitUrl: "https://github.com/srikarnadella/PlutusSandboxDemo",
   },
   {
+    slug: "thirteen-nil",
+    title: "13–0",
+    kind: "Football draft game",
+    year: "2026",
+    description:
+      "Draft an all-time Champions League XI from the modern era, then simulate the campaign and see whether it can go unbeaten through all 13 games. A ScoutIQ mode hides the stats and makes you pick on judgement.",
+    stack: "React · TypeScript · Vite",
+    image: "/projects/thirteen.png",
+    imageAlt: "13–0 start screen: Draft an all-time UCL XI from the modern era",
+    liveUrl: "https://13-0-beta.vercel.app",
+    gitUrl: "https://github.com/srikarnadella/13-0",
+  },
+  {
+    slug: "djikstra",
     title: "D(J)ikstra",
-    description: "Graph-based DJ set-list generator using Dijkstra's algorithm and clustering to optimize harmonic transitions across 600+ songs via cosine similarity, cutting manual planning time for 10+ active DJs. Real-time re-optimization during live sets through a custom graph-traversal engine with harmonic-mixing constraints.",
-    stack: "Python · NetworkX · Scikit-learn · Pandas",
+    kind: "DJ setlist graph",
+    year: "2026",
+    description:
+      "Treats a music library as a graph and uses Dijkstra's algorithm and clustering to find the smoothest harmonic route through 600+ songs, re-optimizing live as the set changes.",
+    result: "Cut manual set planning for 10+ active DJs.",
+    stack: "Python · NetworkX · scikit-learn · pandas · Streamlit",
+    image: "/projects/djikstra.jpg",
+    imageAlt: "D-i-Jkstra home: library stats, genre breakdown and Camelot key distribution",
+    liveUrl: "https://djikstra.streamlit.app/",
     gitUrl: "https://github.com/srikarnadella/D-i-Jkstra",
   },
   {
-    title: "API Buckets",
-    description: "Database-free, cloud-native platform on AWS Elastic Beanstalk that converts spreadsheets with 1,000+ rows into auto-documented REST APIs with dynamic endpoints in under 5 minutes.",
-    stack: "Java · Spring Boot · React · AWS S3 · OpenAPI",
-    gitUrl: "https://github.com/srikarnadella/APIBuckets",
+    slug: "imessage-analytics",
+    title: "iMessage Analytics",
+    kind: "Local analytics dashboard",
+    year: "2026",
+    description:
+      "Reads your own Messages history on macOS and turns it into a dashboard of who you talk to, when, and in what mood, with sentiment scored on-device by VADER. No external calls, no cloud, nothing leaves the machine.",
+    stack: "Python · FastAPI · pandas · React · Recharts",
+    figure: { big: "100k+", small: "Messages decoded and scored on your own Mac" },
+    gitUrl: "https://github.com/srikarnadella/iMessageAnalytics",
   },
-  {
-    title: "Trading Pairs HUD",
-    description: "Data-focused interface for pair-trading analysis with readable correlation signals and clean quantitative visuals.",
-    stack: "Python · Analytics",
-    gitUrl: "https://github.com/srikarnadella/TradingPairsHUD",
-  },
-  {
-    title: "Computer Vision",
-    description: "Computer vision pipelines covering dataset preparation, live camera input, and identity-matching workflows.",
-    stack: "Python · Computer Vision",
-    gitUrl: "https://github.com/srikarnadella/ComputerVisionProject",
-  },
-  {
-    title: "AI 2048",
-    description: "AI course project comparing algorithms, expectimax, Monte Carlo, and deep RL, in a 2048 sandbox environment.",
-    stack: "Python · ML",
-    gitUrl: "https://github.com/srikarnadella/AI2048",
-  },
-  {
-    title: "NBA MVP Predictor",
-    description: "ML analysis on historical NBA data estimating MVP candidates from player stats and advanced metrics.",
-    stack: "Python · Sports Analytics",
-    gitUrl: "https://github.com/srikarnadella/NBAMVPPredictor",
-  },
-  {
-    title: "Housing Market Analysis",
-    description: "ML project using housing and macroeconomic data to model market movement.",
-    stack: "Python · Data Analysis · ML",
-    gitUrl: "https://github.com/srikarnadella/HouseMarketAnalysis",
-  },
+]
+
+// Smaller and earlier repos, shown as a plain list.
+export const ARCHIVE = [
+  { title: "API Buckets", kind: "Spreadsheet to documented REST API", stack: "Java · Spring Boot · AWS", year: "2025", url: "https://github.com/srikarnadella/APIBuckets" },
+  { title: "Pairs HUD", kind: "Pairs-trading charts, ratios and RSI", stack: "Python · Streamlit", year: "2026", url: "https://srikarnadella-tradingpairshud-streamlit-app-tlix0d.streamlit.app/" },
+  { title: "AI 2048", kind: "Expectimax, Monte Carlo and deep RL compared", stack: "Python", year: "2025", url: "https://github.com/srikarnadella/AI2048" },
+  { title: "Computer Vision", kind: "Live camera input and identity matching", stack: "Python", year: "2026", url: "https://github.com/srikarnadella/ComputerVisionProject" },
+  { title: "Anomaly Detector", kind: "Outliers in any spreadsheet", stack: "Python · Streamlit", year: "2025", url: "https://anamolydetector.streamlit.app/" },
+  { title: "Setlist Designer", kind: "Planning tool for DJ sets", stack: "Python · Streamlit", year: "2025", url: "https://setlistdesign.streamlit.app/" },
+  { title: "NBA MVP Predictor", kind: "MVP odds from advanced stats", stack: "Python · scikit-learn", year: "2024", url: "https://github.com/srikarnadella/NBAMVPPredictor" },
+  { title: "Housing Market", kind: "Market movement from macro data", stack: "Python · scikit-learn", year: "2024", url: "https://github.com/srikarnadella/HouseMarketAnalysis" },
+  { title: "Spotify Wrapped HUD", kind: "Top artists, albums and genres", stack: "React · Spotify API", year: "2024", url: "https://spotify-wrapped-hud.vercel.app" },
+  { title: "BlackJack ML", kind: "A model that plays the hand", stack: "Python", year: "2024", url: "https://github.com/srikarnadella/BlackJackML" },
+  { title: "Caddy AI", kind: "Club and shot advice from yardage", stack: "JavaScript", year: "2024", url: "https://github.com/srikarnadella/CaddyAI" },
+  { title: "Sort Visualizer", kind: "Sorting algorithms, animated", stack: "React", year: "2024", url: "https://sort-visualizer-fawn.vercel.app/" },
 ]
 
 export const SUMMARY =

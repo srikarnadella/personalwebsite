@@ -1,62 +1,53 @@
-import React from "react";
-import { HERO } from "../data/site-content";
-import RevealBlock from "./sections/RevealBlock";
+import Image from "next/image"
+import { HERO } from "../data/site-content"
 
+const rows = [
+  ["Email", HERO.email, `mailto:${HERO.email}?subject=Hello%20Srikar`],
+  ["LinkedIn", "srikar-nadella", HERO.linkedin],
+  ["GitHub", "srikarnadella", HERO.github],
+  ["Resume", "One page, PDF", HERO.resume],
+]
+
+// A visit card on the Lawn at UVA: where to find me and how to get in touch
 export default function EmailSection() {
   return (
-    <section id="contact" className="py-24 sm:py-32">
-      <RevealBlock as="div" className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-        <div>
-          <h2
-            className="font-display font-extrabold text-white leading-[0.92] tracking-tight"
-            style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)" }}
-          >
-            Let&apos;s<br />
-            <span className="text-[#E57200]">talk.</span>
-          </h2>
-          <p className="mt-5 text-base text-slate-400 max-w-sm leading-relaxed">
-            Open to SWE new grad opportunities. Reach out directly.
-          </p>
-        </div>
+    <section id="contact" className="relative mt-24 md:mt-[200px] md:h-[100svh] md:min-h-[680px]">
+      <div className="relative h-[70svh] overflow-clip md:absolute md:inset-0 md:h-auto">
+        <Image
+          src="/images/rotunda-lawn.jpg"
+          alt="The Rotunda at the head of the Lawn, University of Virginia, in early spring"
+          fill
+          sizes="100vw"
+          className="drift object-cover object-bottom"
+        />
+      </div>
 
-        <div className="flex flex-col gap-3 md:items-end">
-          <a
-            href="mailto:nadellasrikar@gmail.com"
-            className="group flex items-center gap-3 text-white hover:text-[#E57200] transition-colors duration-200"
-          >
-            <span className="font-display text-lg font-semibold">nadellasrikar@gmail.com</span>
-            <span className="text-[#E57200] opacity-0 group-hover:opacity-100 transition-opacity">↗</span>
-          </a>
-          <div className="flex gap-4 mt-1">
-            <a
-              href="https://www.linkedin.com/in/srikar-nadella/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-500 hover:text-[#E57200] transition-colors duration-200 tracking-wide"
-            >
-              LinkedIn
-            </a>
-            <span className="text-white/10">·</span>
-            <a
-              href="https://github.com/srikarnadella"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-500 hover:text-[#E57200] transition-colors duration-200 tracking-wide"
-            >
-              GitHub
-            </a>
-            <span className="text-white/10">·</span>
-            <a
-              href={HERO.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-slate-500 hover:text-[#E57200] transition-colors duration-200 tracking-wide"
-            >
-              Resume
-            </a>
-          </div>
-        </div>
-      </RevealBlock>
+      <div className="relative mx-4 -mt-20 bg-[var(--surface)] p-8 text-[var(--ink)] md:absolute md:right-[var(--margin)] md:top-[60px] md:mx-0 md:mt-0 md:w-[380px]">
+        <h2 className="font-display font-light leading-[1.1] tracking-[-0.02em]" style={{ fontSize: "var(--t-list)" }}>Write to me</h2>
+        <p className="mt-4">
+          University of Virginia
+          <br />
+          Charlottesville, Virginia
+        </p>
+        <dl className="mt-6 flex flex-col gap-2">
+          {rows.map(([label, value, href]) => (
+            <div key={label} className="flex items-baseline justify-between gap-4">
+              <dt className="text-[var(--muted)]">{label}</dt>
+              <dd className="min-w-0 truncate text-right">
+                <a href={href} {...(href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })} className="link">
+                  {value}
+                </a>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <a
+          href={`mailto:${HERO.email}?subject=Hello%20Srikar`}
+          className="btn -mx-8 -mb-8 mt-8 flex !min-h-[56px] justify-center md:!min-h-[52px]"
+        >
+          Hiring new grads? Email me <span className="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
     </section>
-  );
+  )
 }

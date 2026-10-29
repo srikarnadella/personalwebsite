@@ -1,13 +1,15 @@
-import ExperienceSection from "./sections/ExperienceSection"
 import ProjectsSection from "./sections/ProjectsSection"
+import ArchiveSection from "./sections/ArchiveSection"
+import ExperienceSection from "./sections/ExperienceSection"
 import DetailsSection from "./sections/DetailsSection"
 
 export default function PortfolioSections() {
   return (
-    <section className="pt-20 sm:pt-28">
+    <>
       <ProjectsSection />
+      <ArchiveSection />
       <ExperienceSection />
       <DetailsSection />
-    </section>
+    </>
   )
 }

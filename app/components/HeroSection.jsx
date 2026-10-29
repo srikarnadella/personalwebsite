@@ -9,83 +9,58 @@ const ShaderAnimation = dynamic(
   { ssr: false }
 )
 
+// The first screen is the live shader with a paddock pass lying at its foot.
 export default function HeroSection() {
-  const speedRef = useRef(1)
+  const pulseRef = useRef(null)
 
-  const handleClick = () => {
-    speedRef.current = 3
-    setTimeout(() => { speedRef.current = 2 }, 300)
-    setTimeout(() => { speedRef.current = 1 }, 700)
+  // A click on the field around the pass sends a swell out from the cursor
+  const handleClick = (e) => {
+    pulseRef.current = { x: e.clientX, y: e.clientY, t: performance.now() }
   }
 
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-center overflow-hidden cursor-pointer"
+      className="relative flex h-[100svh] min-h-[620px] items-end overflow-hidden px-3 pb-6 md:px-[var(--margin)] md:pb-[8svh]"
       onClick={handleClick}
     >
-      {/* Shader background */}
       <div className="absolute inset-0">
-        <ShaderAnimation className="w-full h-full" speedRef={speedRef} />
+        <ShaderAnimation className="h-full w-full" pulseRef={pulseRef} />
       </div>
 
-      {/* Centered dark overlay */}
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#06080f] to-transparent pointer-events-none" />
+      {/* The pass: credential-sized, at the foot of the screen, so the shader keeps the room */}
+      <div
+        className="pass hero-in relative w-full max-w-[660px] bg-[var(--surface)] px-7 pb-8 pt-12 md:px-12 md:pb-12 md:pt-14"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Lanyard slot */}
+        <span aria-hidden="true" className="absolute left-1/2 top-4 h-2.5 w-14 -translate-x-1/2 rounded-full bg-[var(--bg)]" />
 
-      {/* Centered content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-xl w-full">
         <h1
-          className="font-display font-extrabold uppercase leading-[0.88] tracking-[-0.02em] text-white hero-name"
-          style={{ fontSize: "clamp(3rem, 8vw, 5.5rem)" }}
+          className="font-display font-extrabold leading-[0.92] tracking-[-0.035em]"
+          style={{ fontSize: "var(--t-display)" }}
         >
-          Srikar<br />
-          <span className="text-[#E57200]">Nadella</span>
+          <span className="line"><span className="line-in" style={{ "--i": 1 }}>Srikar</span></span>
+          <span className="line"><span className="line-in" style={{ "--i": 2 }}>Nadella</span></span>
         </h1>
 
-        <p
-          className="mt-6 max-w-md text-[0.95rem] text-slate-300 hero-role leading-relaxed"
-          style={{ letterSpacing: "0.01em" }}
-        >
+        <p className="hero-in mt-5 max-w-[44ch] text-[1.25rem] leading-[1.45]" style={{ "--i": 3 }}>
           {HERO.role}
         </p>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-3 hero-stack">
-          <a
-            href="https://www.linkedin.com/in/srikar-nadella/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-[#E57200]/50 bg-[#E57200]/12 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-[#E57200]/22"
-            onClick={(e) => e.stopPropagation()}
-          >
-            LinkedIn
-          </a>
-          <a
-            href={HERO.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
-            onClick={(e) => e.stopPropagation()}
-          >
-            Resume
-          </a>
-        </div>
-      </div>
+        <p className="hero-in mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[var(--muted)]" style={{ "--i": 4, fontSize: "var(--t-small)" }}>
+          <span>University of Virginia, class of 2027</span>
+          <span aria-hidden="true" className="h-2 w-2 rotate-45 bg-[var(--accent)]" />
+          <span>Charlottesville, Virginia</span>
+        </p>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-600 z-10">
-        <span className="font-mono text-[0.52rem] tracking-[0.35em] uppercase">scroll</span>
-        <svg
-          className="animate-scroll w-3 h-3"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.5}
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
+        <div className="hero-in mt-8 flex flex-wrap items-center gap-x-5 gap-y-4 md:gap-x-7" style={{ "--i": 5 }}>
+          <a href="#projects" className="btn w-full justify-center sm:w-auto">
+            See the work <span className="arrow" aria-hidden="true">↓</span>
+          </a>
+          <a href={HERO.linkedin} target="_blank" rel="noopener noreferrer" className="link">LinkedIn</a>
+          <a href={HERO.github} target="_blank" rel="noopener noreferrer" className="link">GitHub</a>
+        </div>
       </div>
     </section>
   )

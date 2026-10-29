@@ -1,37 +1,40 @@
-import React from "react";
-import NavigationLink from "./NavigationLink";
 import Image from "next/image";
+import { HERO } from "../data/site-content";
 
 const navLinks = [
-  { title: "Home", path: "#home" },
   { title: "Work", path: "#projects" },
-  { title: "Experience", path: "#tiles" },
+  { title: "Experience", path: "#experience" },
+  { title: "About", path: "#about" },
   { title: "Contact", path: "#contact" },
 ];
 
 const NavigationBar = () => {
   return (
-      <nav className="fixed left-0 right-0 top-0 z-20 border-b border-[#E57200]/15 bg-[#0a1120]/84 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between px-5 py-3 lg:px-8">
-          <Image
-            src="/images/transparentv.png"
-            width={75}
-            height={75}
-            alt="Logo"
-            className="h-auto w-[56px] opacity-90"
-          />
-
-          <div className="menu hidden md:block md:w-auto" id="navbar">
-            <ul className="mt-0 flex rounded-full border border-[#E57200]/15 bg-white/5 px-4 py-3 text-base font-semibold md:flex-row md:space-x-8 md:p-3">
-              {navLinks.map((link, index) => (
-                <li key={index}>
-                  <NavigationLink href={link.path} title={link.title} />
-                </li>
-              ))}
-            </ul>
-          </div>
+    <nav className="fixed inset-x-0 top-0 z-30 bg-[var(--bg)]">
+      <div className="flex h-16 items-center justify-between gap-6 px-[var(--margin)]">
+        <a href="#home" className="flex items-center gap-3 font-display font-bold text-[var(--ink)]">
+          <Image src="/images/transparentv.png" width={75} height={75} alt="" className="h-auto w-9" />
+          <span className="hidden sm:inline">Srikar Nadella</span>
+        </a>
+        <div className="flex items-center gap-5 sm:gap-8">
+          <ul className="hidden items-center gap-8 md:flex">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <a href={link.path} className="text-[var(--muted)] transition-colors hover:text-[var(--ink)]">
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="#projects" className="text-[var(--muted)] transition-colors hover:text-[var(--ink)] md:hidden">
+            Work
+          </a>
+          <a href={HERO.resume} target="_blank" rel="noopener noreferrer" className="btn !min-h-[40px] !px-4">
+            Resume
+          </a>
         </div>
-      </nav>
+      </div>
+    </nav>
   );
 };
 

@@ -7,15 +7,17 @@ import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   return (
-    <main className="site-shell flex min-h-screen flex-col text-white">
+    <>
       <Analytics />
       <NavigationBar />
-      <HeroSection />
-      <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
+      {/* The page is an opaque sheet above the footer; scrolling slides it up to uncover the footer beneath */}
+      <main className="relative z-10 flex min-h-[100svh] flex-col bg-[var(--bg)] pb-24 md:pb-[160px]">
+        <HeroSection />
         <PortfolioSections />
         <EmailSection />
-      </div>
+        <div id="curtain-edge" className="absolute inset-x-0 bottom-0 h-0" />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
