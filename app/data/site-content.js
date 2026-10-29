@@ -1,6 +1,6 @@
 export const HERO = {
   name: "Srikar Nadella",
-  role: "CS at UVA. I build software for F1, the markets and anything with data. Open to New Grad SWE roles.",
+  role: "CS and Business at UVA. Student who likes to connect his hobbies to software and data. Open to New Grad SWE roles.",
   linkedin: "https://www.linkedin.com/in/srikar-nadella/",
   resume: "https://drive.google.com/file/d/1iYqM8iDdflOOS9-iNEsyObbX1eQZbnv1/view?usp=sharing",
   github: "https://github.com/srikarnadella",
@@ -106,20 +106,6 @@ export const PROJECTS = [
     gitUrl: "https://github.com/srikarnadella/f1-raceforcaster",
   },
   {
-    slug: "sp500-screener",
-    title: "Level Screener",
-    kind: "S&P 500 market screen",
-    year: "2026",
-    description:
-      "Screens every S&P 500 stock for setups at the moving averages and Bollinger Bands that stock has actually respected, tested against a placebo baseline of fake levels, then re-ranks the results for the VIX regime.",
-    result: "Publishes itself each weekday after the close, with breadth, credit spreads, sector strength and a forward-tested record of its own picks.",
-    stack: "Python · pandas · yfinance · FRED · GitHub Pages",
-    image: "/projects/sp500.png",
-    imageAlt: "The S&P 500 level-respect screen showing the VIX regime, conviction score and breadth figures",
-    liveUrl: "https://srikarnadella.github.io/sp500-screener/",
-    gitUrl: "https://github.com/srikarnadella/sp500-screener",
-  },
-  {
     slug: "plutus",
     title: "Plutus",
     kind: "Personal finance platform",
@@ -160,21 +146,11 @@ export const PROJECTS = [
     liveUrl: "https://djikstra.streamlit.app/",
     gitUrl: "https://github.com/srikarnadella/D-i-Jkstra",
   },
-  {
-    slug: "imessage-analytics",
-    title: "iMessage Analytics",
-    kind: "Local analytics dashboard",
-    year: "2026",
-    description:
-      "Reads your own Messages history on macOS and turns it into a dashboard of who you talk to, when, and in what mood, with sentiment scored on-device by VADER. No external calls, no cloud, nothing leaves the machine.",
-    stack: "Python · FastAPI · pandas · React · Recharts",
-    figure: { big: "100k+", small: "Messages decoded and scored on your own Mac" },
-    gitUrl: "https://github.com/srikarnadella/iMessageAnalytics",
-  },
 ]
 
 // Smaller and earlier repos, shown as a plain list.
 export const ARCHIVE = [
+  { title: "iMessage Analytics", kind: "Who you text, when and in what mood, on-device", stack: "Python · FastAPI · React", year: "2026", url: "https://github.com/srikarnadella/iMessageAnalytics" },
   { title: "API Buckets", kind: "Spreadsheet to documented REST API", stack: "Java · Spring Boot · AWS", year: "2025", url: "https://github.com/srikarnadella/APIBuckets" },
   { title: "Pairs HUD", kind: "Pairs-trading charts, ratios and RSI", stack: "Python · Streamlit", year: "2026", url: "https://srikarnadella-tradingpairshud-streamlit-app-tlix0d.streamlit.app/" },
   { title: "AI 2048", kind: "Expectimax, Monte Carlo and deep RL compared", stack: "Python", year: "2025", url: "https://github.com/srikarnadella/AI2048" },

@@ -44,7 +44,7 @@ export default function HeroSection() {
           <span className="line"><span className="line-in" style={{ "--i": 2 }}>Nadella</span></span>
         </h1>
 
-        <p className="hero-in mt-5 max-w-[44ch] text-[1.25rem] leading-[1.45]" style={{ "--i": 3 }}>
+        <p className="hero-in mt-5 max-w-[44ch] text-balance text-[1.25rem] leading-[1.45]" style={{ "--i": 3 }}>
           {HERO.role}
         </p>
 

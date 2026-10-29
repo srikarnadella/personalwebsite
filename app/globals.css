@@ -92,14 +92,19 @@ body {
 .perforation { border-top: 5px dotted var(--bg); margin: 0 12px; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .js .curtain:not(.is-open) { visibility: hidden; }
+  .js .curtain { transition: opacity 0.4s var(--ease-out); }
+  .js .curtain:not(.is-open) { visibility: hidden; opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .curtain { position: static; }
 }
 
 .archive-row { transition: background-color var(--t-hover); }
-.archive-row:hover, .archive-row:focus-visible { background: var(--surface); }
+.archive-row:hover, .archive-row:focus-visible { background: var(--surface-3); }
+/* On desktop the rows sit in the photo's sky in dark ink, so hover lifts them with a pale wash instead */
+@media (min-width: 1024px) {
+  #archive .archive-row:hover, #archive .archive-row:focus-visible { background: color-mix(in srgb, var(--ink) 35%, transparent); }
+}
 
 /* Folders. Each tab sits at its own slot along the top edge, so the tabs of the folders beneath
    stay visible as the folders pile up */

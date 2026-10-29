@@ -28,23 +28,11 @@ function ProjectLinks({ project }) {
   )
 }
 
-// A screenshot when there is one, otherwise the project's key number on a plain tile
+// The project's screenshot
 function Cover({ project, sizes }) {
   return (
     <div className="card-pic rv-pic relative aspect-[4/3] bg-[var(--bg)] md:aspect-[16/10]">
-      {project.image ? (
-        <Image src={project.image} alt={project.imageAlt} fill sizes={sizes} className="object-cover object-left-top" />
-      ) : (
-        <div className="flex h-full flex-col justify-end bg-[var(--surface-3)] p-[7%]">
-          <p
-            className="font-display font-extrabold leading-[0.85] tracking-[-0.04em] text-[var(--accent)]"
-            style={{ fontSize: "var(--t-display)" }}
-          >
-            {project.figure.big}
-          </p>
-          <p className="mt-4 max-w-[26ch] text-[1.25rem]">{project.figure.small}</p>
-        </div>
-      )}
+      <Image src={project.image} alt={project.imageAlt} fill sizes={sizes} className="object-cover object-left-top" />
     </div>
   )
 }

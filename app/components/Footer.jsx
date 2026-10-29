@@ -12,10 +12,13 @@ const Footer = () => {
   useEffect(() => {
     const edge = document.getElementById("curtain-edge");
     if (!edge || typeof IntersectionObserver === "undefined") return setOpen(true);
-    // Open once the page's bottom edge is on screen, i.e. the footer has begun to be uncovered
+    // Open once the page's bottom edge has risen past the headline, so the headline is never shown covered
+    const headline = document.getElementById("footer-headline");
+    const footer = headline?.closest("footer");
+    const offset = headline && footer ? Math.round(headline.getBoundingClientRect().top - footer.getBoundingClientRect().top) : 0;
     const observer = new IntersectionObserver(([entry]) => {
       setOpen(entry.isIntersecting || entry.boundingClientRect.top < 0);
-    });
+    }, { rootMargin: `0px 0px -${offset}px 0px` });
     observer.observe(edge);
     return () => observer.disconnect();
   }, []);
@@ -24,7 +27,7 @@ const Footer = () => {
     <footer className={`curtain sticky bottom-0 z-0 px-[10px] pb-6 pt-16 md:px-[var(--margin)] md:pt-24 ${open ? "is-open" : ""}`}>
       <div className="scallop-top mx-auto grid max-w-[1180px] grid-cols-1 gap-10 bg-[var(--surface)] px-6 pb-8 pt-14 text-[var(--ink)] md:grid-cols-2 md:px-14 md:pt-16">
         <div>
-          <p className="font-display font-extrabold leading-[1] tracking-[-0.02em]" style={{ fontSize: "var(--t-list)" }}>Thanks for reading.</p>
+          <p id="footer-headline" className="font-display font-extrabold leading-[1] tracking-[-0.02em]" style={{ fontSize: "var(--t-list)" }}>Thanks for reading.</p>
           <p className="mt-4 max-w-[38ch]">
             Every project here is one I built myself. If one of them is close to what your team works on, I&apos;d
             like to talk about it.

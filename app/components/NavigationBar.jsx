@@ -4,7 +4,6 @@ import { HERO } from "../data/site-content";
 const navLinks = [
   { title: "Work", path: "#projects" },
   { title: "Experience", path: "#experience" },
-  { title: "About", path: "#about" },
   { title: "Contact", path: "#contact" },
 ];
 

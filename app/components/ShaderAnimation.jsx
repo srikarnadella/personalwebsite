@@ -98,7 +98,16 @@ export function ShaderAnimation({ className, style, pulseRef }) {
       const dt = Math.min((now - last) / 1000, 1 / 20)
       last = now
 
-      const pulse = pulseRef?.current
+      let pulse = pulseRef?.current
+      // With no click for a few seconds, a swell starts on its own somewhere in the field
+      if (pulseRef && (!pulse || now - pulse.t > 4500)) {
+        const rect = container.getBoundingClientRect()
+        pulse = pulseRef.current = {
+          x: rect.left + rect.width * (0.2 + Math.random() * 0.6),
+          y: rect.top + rect.height * (0.15 + Math.random() * 0.5),
+          t: now,
+        }
+      }
       if (pulse && pulse !== placedPulse) placePulse(pulse)
       const age = pulse ? (now - pulse.t) / 1000 : 99
       uniforms.ripple.value.z = age
