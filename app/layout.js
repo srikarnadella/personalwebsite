@@ -1,33 +1,23 @@
-import { Bricolage_Grotesque, Onest } from "next/font/google";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-display",
-  axes: ["wdth", "opsz"],
-});
-
-const onest = Onest({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["300", "400", "500", "600", "700"],
-});
+const description = "Software engineer and CS and Business student at UVA, building around F1 telemetry, market data and ML. Looking for new grad software engineering roles.";
 
 export const metadata = {
-  title: "Srikar Nadella",
-  description: "Software engineer and CS student at UVA. Projects in F1 telemetry, market data, fintech and ML.",
+  metadataBase: new URL("https://srikarnadella.com"),
+  title: "Srikar Nadella | Software Engineer",
+  description,
+  openGraph: { title: "Srikar Nadella | Software Engineer", description, type: "website", siteName: "Srikar Nadella" },
+  twitter: { card: "summary_large_image", title: "Srikar Nadella | Software Engineer", description },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${onest.variable}`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Reveal styles only hide content once this has run, so the page reads fine without script */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
