@@ -72,8 +72,8 @@ u { text-decoration-color: var(--teal); text-decoration-thickness: 3px; text-und
 .caret { display: inline-block; width: 3px; height: 1em; margin-left: 4px; vertical-align: -0.15em; background: var(--teal-ink); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .hero-core .btn { margin-top: 28px; }
-.hero-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; margin-top: 28px; }
-.hero-nav a { font-size: var(--t-body); text-decoration: none; color: var(--muted); transition: color 0.2s; }
+.hero-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 36px; margin-top: 28px; }
+.hero-nav a { font-size: 1.25rem; font-weight: 500; text-decoration: none; color: var(--muted); transition: color 0.2s; }
 .hero-nav a:hover { color: var(--teal-ink); }
 
 /* About: photos left, words right */

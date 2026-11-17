@@ -21,7 +21,7 @@ export default function Chrome() {
         <a href={HERO.resume} target="_blank" rel="noopener noreferrer" className="corner-link">Résumé</a>
         <a href="#contact" className="corner-link">
           <svg width="28" height="20" viewBox="0 0 22 16" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="1" y="1" width="20" height="14" rx="1.5" /><path d="m1.5 2 9.5 7.5L20.5 2" /></svg>
-          <span>Get in touch</span>
+          <span>Contact</span>
         </a>
       </div>
       <a href="#hero" className="home" aria-label="Back to top">

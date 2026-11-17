@@ -32,7 +32,7 @@ export const PHOTO = "/images/profile.png"
 
 export const TAGLINES = ["I like building things", "I like F1 telemetry", "I like sim racing", "I like turning data into apps", "I like teaching AP CS"]
 
-export const ABOUT = "Hey, I'm Srikar, a CS and Business student at UVA. I like backend work and data, and most of my projects start with something I'm already into, like F1 and sim racing. Undercut, the race engineer I built for F1 26, is the best example. Outside of class I help run HooHacks and teach AP CS. I'm looking for new grad software engineering roles, so if you've got one, say hi."
+export const ABOUT = "Hey, I'm Srikar, a 4th year CS and Business student at UVA. Regarding my work, I typically work on and love backend work and data as well, AI and machine learning work that comes with the data. I have grown to love these as most of my projects start with something I'm already into, like F1 and sim racing, and I build off of them into tools and products I use in my day-to-day life. What I am currently working on is Undercut, the race engineer I built for F1 26. Outside of class I help run HooHacks and teach AP CS. I'm looking for new grad software engineering roles, so if you've got one, say hi."
 
 // [name, icon file in /public/icons or null]. Names in MOST_USED get the marker.
 export const SKILL_GROUPS = [
