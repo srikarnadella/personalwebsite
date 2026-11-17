@@ -1,72 +1,51 @@
 export const HERO = {
   name: "Srikar Nadella",
-  role: "CS and Business at UVA. Student who likes to connect his hobbies to software and data. Open to New Grad SWE roles.",
+  role: "I'm a Computer Science and Business student at the University of Virginia. I like building software around the things I love, from F1 telemetry to financial data, and I'm looking for new grad software engineering roles.",
   linkedin: "https://www.linkedin.com/in/srikar-nadella/",
-  resume: "https://drive.google.com/file/d/1iYqM8iDdflOOS9-iNEsyObbX1eQZbnv1/view?usp=sharing",
+  resume: "/Srikar_Nadella_Resume.pdf",
   github: "https://github.com/srikarnadella",
   email: "nadellasrikar@gmail.com",
 }
 
 export const EXPERIENCE = [
-  {
-    id: "wf",
-    title: "Wells Fargo",
-    role: "Software Engineering Intern",
-    period: "June – Aug 2026",
-    location: "Charlotte, NC · Corporate & Investment Banking Technology",
-    teaser:
-      "Independently built a fault-tolerant, distributed data ingestion pipeline in Java and Spring Boot for an internal financial-analytics initiative, sustaining 1,100 records a second.",
-    detail:
-      "Owned data integrity end to end for a 14,784-record dataset, using transactional parent-child persistence with optimistic locking to stop write conflicts under concurrent load, then built automated retry and validation logic that cut manual write-failure interventions roughly 85%.",
-    stack: "Java · Spring Boot · Distributed Systems",
-    link: "https://www.wellsfargo.com",
-  },
-  {
-    id: "nw",
-    title: "Nightwing",
-    role: "Data Science Intern",
-    period: "June – Aug 2025",
-    location: "Dulles, VA · formerly Raytheon Cyber & Intelligence",
-    teaser:
-      "Built a modular Python ML pipeline on AWS that cut enterprise security anomaly triage time 25%, surfaced through Power BI dashboards.",
-    detail:
-      "Raised fraud-detection precision from about 80% to 97% with a hybrid AI/ML layer on SageMaker combining statistical methods, Isolation Forest, and deep learning. Also developed an AI security tool, integrating LLaMA 3.2 into a threat-response platform that auto-translates intel into SIGMA rules and files remediation PRs straight into CI/CD, automating away manual review work and cutting analyst triage time 43%.",
-    stack: "Python · AWS SageMaker · LLaMA · Power BI",
-    link: "#",
-  },
-  {
-    id: "ntc",
-    title: "NT Concepts",
-    role: "Software Engineering Intern",
-    period: "July – Aug 2023",
-    location: "Tysons, VA",
-    teaser:
-      "Resolved 20+ bugs across React interfaces and Java REST APIs, lifting regression test coverage 15%.",
-    detail:
-      "Refactored 10+ Java REST APIs and MongoDB queries to cut data-retrieval latency 13% across production reporting modules.",
-    stack: "Java · Spring Boot · MongoDB · React",
-    link: "https://www.ntconcepts.com",
-  },
+  { id: "wf", logo: "/logos/wellsfargo.svg", title: "Wells Fargo", role: "Software Engineering Intern", period: "Jun 2026 - Aug 2026", location: "Charlotte, NC", points: ["Built out the data backend for a dashboard and trading tool used by traders, pulling and organizing data from a variety of sources.", "Fixed recurring dev issues, like failing file uploads, so the team stopped fixing them by hand."], stack: "Java · Spring Boot · Distributed Systems" },
+  { id: "nw", logo: "/logos/nightwing.png", title: "Nightwing", role: "Data Science Intern", period: "Jun 2025 - Aug 2025", location: "Dulles, VA", points: ["Built an anomaly detection tool that catches fraud and cleans up messy data.", "Built an AI security triage tool that helps analysts respond to incidents faster utilizing CI/CD pipelines and robotic automation."], stack: "Python · AWS SageMaker · LLaMA · Power BI" },
+  { id: "ntc", logo: "/logos/ntconcepts.png", logoBg: "#1f3a52", title: "NT Concepts", role: "Software Engineering Intern", period: "Jul 2023 - Aug 2023", location: "Tysons, VA", teaser: "Fixed bugs and sped up the web app and APIs behind a reporting product.", stack: "Java · Spring Boot · MongoDB · React" },
+  { id: "hoohacks", logo: "/logos/hoohacks.svg", title: "HooHacks", role: "Hacker Experience Committee Chair", period: "Sep 2023 - Present", location: "Charlottesville, VA", teaser: "Run the hacker experience for UVA's hackathon, from workshops to sponsors and mentors.", stack: "Leadership · Operations · Workshops" },
+  { id: "gtp", logo: "/logos/gtp.png", logoFill: true, title: "Global Teaching Project", role: "Teaching Assistant", period: "Jun 2024 - Present", location: "Remote", teaser: "Teach AP Computer Science with a custom curriculum for under-resourced students.", stack: "Teaching · Curriculum · Python" },
 ]
 
-export const LEADERSHIP = [
-  {
-    id: "hoohacks",
-    title: "HooHacks",
-    role: "Hacker Experience Committee Chair",
-    period: "Sept 2023 – Present",
-    description: "Led ops for UVA's 700+ attendee hackathon (15+ sponsors/mentors); AI/analytics workshops grew technical track enrollment 20%.",
-    link: "https://hoohacks.io",
-  },
-  {
-    id: "gtp",
-    title: "Global Teaching Project",
-    role: "Teaching Assistant",
-    period: "June 2024 – Present",
-    description: "Improved student AP exam scores 40% YoY (20% outperformance vs. state average) via custom AP CS curriculum for under-resourced students.",
-    link: "https://www.globalteachingproject.org",
-  },
+export const EMAILS = [["Email", HERO.email]] // add more as [label, address], e.g. ["School", "you@virginia.edu"]
+
+export const GALLERY = [
+  ["/images/gallery/sim-rig.jpg", "My sim racing rig, mid-lap in an F1 car with Undercut running on the laptop", "Sim racing"],
+  ["/images/gallery/rotunda.jpg", "The Rotunda at UVA through the trees", "UVA"],
+  ["/images/gallery/golf.jpg", "Two friends on a golf green", "Golf"],
+  ["/images/gallery/hiking.jpg", "A rocky trail through spring woods", "Hiking"],
+  ["/images/gallery/big-ben.jpg", "Big Ben against a pink and orange sunset", "Big Ben"],
+  ["/images/gallery/london.jpg", "Stone rooftops and chimneys under a blue evening sky", "Evening in London"],
+  ["/images/gallery/thames.jpg", "A bridge over the Thames with a red boat passing", "The Thames"],
+  ["/images/gallery/street.jpg", "A colorful sloping street with cafes and parked cars", "Out exploring"],
 ]
+
+export const PHOTO = "/images/profile.png"
+
+export const TAGLINES = ["I like building things", "I like F1 telemetry", "I like sim racing", "I like turning data into apps", "I like teaching AP CS"]
+
+export const ABOUT = "Hey, I'm Srikar, a CS and Business student at UVA. I like backend work and data, and most of my projects start with something I'm already into, like F1 and sim racing. Undercut, the race engineer I built for F1 26, is the best example. Outside of class I help run HooHacks and teach AP CS. I'm looking for new grad software engineering roles, so if you've got one, say hi."
+
+// [name, icon file in /public/icons or null]. Names in MOST_USED get the marker.
+export const SKILL_GROUPS = [
+  ["Languages", [["Java", "java"], ["Python", "python"], ["JavaScript", "javascript"], ["TypeScript", "typescript"], ["SQL", null]]],
+  ["Frameworks & Tools", [["Spring Boot", "spring"], ["React", "react"], ["Node.js", "nodejs"], ["RESTful APIs", null], ["OpenAPI", null], ["JUnit", "junit"], ["Git", "git"], ["Agile/Scrum", null]]],
+  ["Cloud & DevOps", [["AWS", "aws"], ["Terraform", "terraform"], ["Docker", "docker"], ["CI/CD", null], ["Linux", "linux"]]],
+  ["AI/ML & Data", [["Scikit-learn", "scikitlearn"], ["PyTorch", "pytorch"], ["TensorFlow", "tensorflow"], ["Pandas", "pandas"], ["NumPy", "numpy"], ["Power BI", null], ["MongoDB", "mongodb"]]],
+  ["AI Dev Tools", [["GitHub Copilot", "github"], ["Cursor", null], ["Claude Code", null], ["ChatGPT Codex", null]]],
+]
+
+export const MOST_USED = ["Java", "Python", "TypeScript", "Spring Boot", "React", "AWS", "PyTorch", "Scikit-learn"]
+
+export const CERTIFICATION = "AWS Certified Cloud Practitioner"
 
 // Featured work, in the order the index shows it. `image` is a real screenshot in
 // /public/projects; projects without one show `figure` (a key number) instead.
@@ -165,5 +144,3 @@ export const ARCHIVE = [
   { title: "Sort Visualizer", kind: "Sorting algorithms, animated", stack: "React", year: "2024", url: "https://sort-visualizer-fawn.vercel.app/" },
 ]
 
-export const SUMMARY =
-  "B.S. Computer Science at the University of Virginia, class of 2027, minoring in business at McIntire. AWS Certified Cloud Practitioner. Most at home in Java, Python, TypeScript, React, and Spring Boot, running on AWS, with Scikit-learn and PyTorch for the ML side."

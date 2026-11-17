@@ -17,8 +17,7 @@
     "axios": "^1.7.2",
     "next": "^14.2.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "three": "^0.184.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "20.14.2",
