@@ -3,7 +3,7 @@ import { ABOUT, CERTIFICATION, EXPERIENCE, EMAILS, HERO, MOST_USED, SKILL_GROUPS
 import RevealBlock from "./sections/RevealBlock"
 import ProjectTabs from "./ProjectTabs"
 import Chips from "./Chips"
-import PhotoCarousel from "./PhotoCarousel"
+import ContactSheet from "./ContactSheet"
 
 const initials = (name) => name.split(" ").map((w) => w[0]).join("").slice(0, 2)
 
@@ -23,7 +23,7 @@ export function About() {
       <RevealBlock className="about">
         <h3 className="about-h rv">Here is a <u>little</u> background</h3>
         <p className="justify rv" style={{ "--i": 1 }}>{ABOUT}</p>
-        <PhotoCarousel />
+        <ContactSheet />
       </RevealBlock>
     </section>
   )

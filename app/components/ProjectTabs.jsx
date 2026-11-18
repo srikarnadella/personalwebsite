@@ -12,7 +12,10 @@ function Project({ p }) {
   return (
     <>
       <div>
-        <div className="shot"><Image src={p.image} alt={p.imageAlt} fill sizes="(min-width: 900px) 640px, 90vw" className="object-cover object-left-top" /></div>
+        {(() => {
+          const shot = <div className="shot"><Image src={p.image} alt={p.imageAlt} fill sizes="(min-width: 900px) 640px, 90vw" className="object-cover object-left-top" /></div>
+          return p.liveUrl ? <a className="shot-link" href={p.liveUrl} target="_blank" rel="noopener noreferrer" aria-label={`Open ${p.title} live`}>{shot}</a> : shot
+        })()}
         {p.gallery && (
           <div className="gallery">
             {p.gallery.map((g) => (

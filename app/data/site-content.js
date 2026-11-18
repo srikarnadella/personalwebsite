@@ -18,14 +18,18 @@ export const EXPERIENCE = [
 export const EMAILS = [["Email", HERO.email]] // add more as [label, address], e.g. ["School", "you@virginia.edu"]
 
 export const GALLERY = [
-  ["/images/gallery/sim-rig.jpg", "My sim racing rig, mid-lap in an F1 car with Undercut running on the laptop", "Sim racing"],
-  ["/images/gallery/rotunda.jpg", "The Rotunda at UVA through the trees", "UVA"],
-  ["/images/gallery/golf.jpg", "Two friends on a golf green", "Golf"],
-  ["/images/gallery/hiking.jpg", "A rocky trail through spring woods", "Hiking"],
-  ["/images/gallery/big-ben.jpg", "Big Ben against a pink and orange sunset", "Big Ben"],
-  ["/images/gallery/london.jpg", "Stone rooftops and chimneys under a blue evening sky", "Evening in London"],
-  ["/images/gallery/thames.jpg", "A bridge over the Thames with a red boat passing", "The Thames"],
-  ["/images/gallery/street.jpg", "A colorful sloping street with cafes and parked cars", "Out exploring"],
+  ["/images/gallery/sim-rig.jpg", "My sim racing rig, mid-lap in an F1 car with Undercut running on the laptop", "Sim racing", 1050, 1400],
+  ["/images/gallery/rotunda.jpg", "The Rotunda at UVA through the trees", "UVA", 1050, 1400],
+  ["/images/gallery/golf.jpg", "Two friends on a golf green", "Golf", 1050, 1400],
+  ["/images/gallery/hiking.jpg", "A rocky trail through spring woods", "Hiking", 1050, 1400],
+  ["/images/gallery/big-ben.jpg", "Big Ben against a pink and orange sunset", "Big Ben", 1050, 1400],
+  ["/images/gallery/london.jpg", "Stone rooftops and chimneys under a blue evening sky", "Evening in London", 1050, 1400],
+  ["/images/gallery/street.jpg", "A colorful sloping street with cafes and parked cars", "Out exploring", 1050, 1400],
+  ["/images/gallery/great-falls.jpg", "Whitewater rushing through dark rocks at Great Falls under a blue sky", "Great Falls", 900, 1200],
+  ["/images/gallery/jamaica.jpg", "Rocky shoreline and a calm bay with green hills in Jamaica", "Jamaica", 900, 1200],
+  ["/images/gallery/chairlift.jpg", "A chairlift climbing through dense tropical forest toward the sea", "Mystic Mountain", 900, 1200],
+  ["/images/gallery/cota-crowd.jpg", "A packed crowd of Red Bull fans facing the podium at the Circuit of the Americas", "F1, Austin", 900, 1200],
+  ["/images/gallery/spikeball.jpg", "Four friends playing spikeball on a lawn at sunset", "Spikeball", 675, 1200],
 ]
 
 export const PHOTO = "/images/profile.png"
