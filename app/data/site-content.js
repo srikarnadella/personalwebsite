@@ -117,11 +117,11 @@ export const PROJECTS = [
     kind: "DJ setlist graph",
     year: "2026",
     description:
-      "Treats a music library as a graph and uses Dijkstra's algorithm and clustering to find the smoothest harmonic route through 600+ songs, re-optimizing live as the set changes.",
+      "Treats a music library as a graph and uses Dijkstra's algorithm and clustering to find the smoothest harmonic route through 1,000+ songs across all 24 Camelot keys. Build a set ahead of time or go live and re-optimize as the set changes.",
     result: "Cut manual set planning for 10+ active DJs.",
     stack: "Python · NetworkX · scikit-learn · pandas · Streamlit",
     image: "/projects/djikstra.jpg",
-    imageAlt: "D-i-Jkstra home: library stats, genre breakdown and Camelot key distribution",
+    imageAlt: "D-i-Jkstra overview: library stats, Camelot key wheel and genre breakdown",
     liveUrl: "https://djikstra.streamlit.app/",
     gitUrl: "https://github.com/srikarnadella/D-i-Jkstra",
   },
