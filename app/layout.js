@@ -1,4 +1,5 @@
 import "./globals.css";
+import PostHog from "./components/Analytics";
 import { Analytics } from "@vercel/analytics/next";
 
 const description = "Software engineer and CS and Business student at UVA, building around F1 telemetry, market data and ML. Looking for new grad software engineering roles.";
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <Analytics />
+        <PostHog />
       </body>
     </html>
   );
