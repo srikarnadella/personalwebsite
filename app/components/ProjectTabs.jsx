@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Chips from "./Chips"
 import { ARCHIVE, PROJECTS } from "../data/site-content"
@@ -8,6 +8,11 @@ import { ARCHIVE, PROJECTS } from "../data/site-content"
 const TABS = [...PROJECTS.map((p) => p.title), "More"]
 
 function Project({ p }) {
+  const dlg = useRef(null)
+  const [open, setOpen] = useState(null)
+  // Open only after the photo is rendered, so the previous one never flashes.
+  useEffect(() => { if (open !== null && !dlg.current.open) dlg.current.showModal() }, [open])
+  const g = p.gallery?.[open ?? 0]
   const links = [p.liveUrl && ["Live", p.liveUrl], p.gitUrl && ["Code", p.gitUrl], p.postUrl && ["Write-up", p.postUrl]].filter(Boolean)
   return (
     <>
@@ -18,10 +23,23 @@ function Project({ p }) {
         })()}
         {p.gallery && (
           <div className="gallery">
-            {p.gallery.map((g) => (
-              <div key={g.src} className="shot"><Image src={g.src} alt={g.alt} fill sizes="200px" className="object-cover object-left-top" /></div>
+            {p.gallery.map((g, n) => (
+              <button key={g.src} type="button" className="shot shot-btn" onClick={() => setOpen(n)} aria-label={`Enlarge: ${g.caption || g.alt}`}>
+                <Image src={g.src} alt={g.alt} fill sizes="200px" className="object-cover object-left-top" />
+              </button>
             ))}
           </div>
+        )}
+        {p.gallery && (
+          <dialog ref={dlg} className="lightbox" onClose={() => setOpen(null)} onClick={(e) => e.target === dlg.current && dlg.current.close()}>
+            <div className="lb">
+              {open !== null && <Image key={g.src} src={g.src} alt={g.alt} width={1440} height={900} sizes="96vw" />}
+              <div className="lb-bar">
+                <span className="lb-cap">{g.caption || g.alt}</span>
+                <button type="button" onClick={() => dlg.current.close()} aria-label="Close">✕</button>
+              </div>
+            </div>
+          </dialog>
         )}
       </div>
       <div>

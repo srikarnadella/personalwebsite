@@ -164,6 +164,9 @@ u { text-decoration-color: var(--teal); text-decoration-thickness: 3px; text-und
 .shot-link:hover .shot img { transform: scale(1.02); }
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
 .gallery .shot { aspect-ratio: 4 / 3; }
+.shot-btn { display: block; width: 100%; padding: 0; border: 0; cursor: zoom-in; }
+.shot-btn img { transition: transform 0.4s var(--ease); }
+.shot-btn:hover img, .shot-btn:focus-visible img { transform: scale(1.04); }
 .panel h3 { font-size: var(--t-heading); font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; }
 .panel .kind { margin-top: 4px; color: var(--muted); }
 .panel .body { margin-top: 18px; }
