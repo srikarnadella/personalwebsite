@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const description = "Software engineer and CS and Business student at UVA, building around F1 telemetry, market data and ML. Looking for new grad software engineering roles.";
 
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
         {/* Reveal styles only hide content once this has run, so the page reads fine without script */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
